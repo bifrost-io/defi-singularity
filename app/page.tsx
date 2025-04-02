@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -21,35 +21,40 @@ export default function Home() {
           </div>
         </div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold leading-tight text-secondary">DeFi Singularity</h1>
-          <Button variant="secondary" asChild size="lg" className="p-4 rounded-full mt-4">
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold leading-tight text-secondary">
+            DeFi Singularity
+          </h1>
+          <Button
+            variant="secondary"
+            asChild
+            size="lg"
+            className="p-4 rounded-full mt-4"
+          >
             <Link href="/explore">
               <ArrowRight />
               Explore
             </Link>
           </Button>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/30 to-transparent" />
       </div>
       <div className="flex flex-col gap-4 items-center justify-center px-2 md:px-8">
-        <h1 className="text-4xl font-bold text-primary max-w-sm text-center">Enter a new era of crosschain DeFi</h1>
-        <p className="max-w-xs text-lg text-center text-muted-foreground">Trustless and Verifiable interoperability powered by Polkadot</p>
-        <Image
-          src="/hyperbridge.png"
-          alt="DOT"
-          width={700}
-          height={700}
-        />
+        <h1 className="text-4xl font-bold text-primary max-w-sm text-center">
+          Enter a new era of crosschain DeFi
+        </h1>
+        <p className="max-w-xs text-lg text-center text-muted-foreground">
+          Trustless and Verifiable interoperability powered by Polkadot
+        </p>
+        <Image src="/hyperbridge.png" alt="DOT" width={700} height={700} />
       </div>
       <div className="flex flex-col gap-4 items-center justify-cente px-2 md:px-8">
-        <h1 className="text-4xl font-bold text-primary max-w-sm text-center">765,000 DOT incentive</h1>
-        <p className="max-w-xs text-lg text-center text-muted-foreground">Paid out in vDOT, to liquidity providers on eligible pools</p>
-        <Image
-          src="/dot.svg"
-          alt="DOT"
-          width={600}
-          height={600}
-        />
+        <h1 className="text-4xl font-bold text-primary max-w-sm text-center">
+          765,000 DOT incentive
+        </h1>
+        <p className="max-w-xs text-lg text-center text-muted-foreground">
+          Paid out in vDOT, to liquidity providers on eligible pools
+        </p>
+        <Image src="/dot.svg" alt="DOT" width={600} height={600} />
       </div>
       <div className="flex flex-col gap-4 px-4 md:px-8">
         <p className="text-muted-foreground">On the event horizon...</p>
@@ -61,22 +66,33 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
             <h2 className="text-lg font-bold">Liquidity mining</h2>
-            <p className="text-muted-foreground">Provide liquidity and earn rewards</p>
+            <p className="text-muted-foreground">
+              Provide liquidity and earn rewards
+            </p>
           </div>
           <div className="grid grid-cols-1 gap-4">
             <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
               <h2 className="text-lg font-bold">Yield bearing rewards</h2>
-              <p className="text-muted-foreground">Rewards are boosted by being an LST</p>
+              <p className="text-muted-foreground">
+                Rewards are boosted by being a{" "}<Link href="https://bifrost.io" className="text-primary font-semibold inline-flex items-center">Bifrost LST <ExternalLink className="w-4 h-4 ml-1" /></Link>
+              </p>
             </div>
             <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
               <h2 className="text-lg font-bold">Verifiable security</h2>
-              <p className="text-muted-foreground">Assets are bridged by Hyperbridge</p>
+              <p className="text-muted-foreground">
+                Assets are bridged by{" "}
+                <Link href="https://hyperbridge.network" className="text-primary font-semibold inline-flex items-center">
+                  Hyperbridge <ExternalLink className="w-4 h-4 ml-1" />
+                </Link>
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center justify-cente px-2 md:px-8r">
-        <h1 className="text-4xl font-bold text-primary max-w-sm text-center">Powered by Polkadot</h1>
+        <h1 className="text-4xl font-bold text-primary max-w-sm text-center">
+          Powered by Polkadot
+        </h1>
       </div>
     </main>
   );
