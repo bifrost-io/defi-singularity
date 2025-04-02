@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-foreground pb-8">
+    <main className="flex flex-col gap-8 min-h-screen bg-foreground pb-8">
       {/* Hero Section with just the image and text */}
       <div className="h-screen relative flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -22,9 +23,11 @@ export default function Home() {
         </div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold leading-tight text-primary">DeFi Singularity</h1>
-          <Button size="lg" className="p-4 rounded-full mt-4">
-            <ArrowRight />
-            Explore
+          <Button asChild size="lg" className="p-4 rounded-full mt-4">
+            <Link href="/explore">
+              <ArrowRight />
+              Explore
+            </Link>
           </Button>
         </div>
       </div>
@@ -34,13 +37,17 @@ export default function Home() {
         <Image
           src="/hyperbridge.png"
           alt="DOT"
-          width={500}
-          height={500}
+          width={700}
+          height={700}
         />
       </div>
       <div className="flex flex-col gap-4 items-center justify-center">
         <h1 className="text-4xl font-bold text-secondary max-w-sm text-center">765,000 DOT incentive</h1>
         <p className="max-w-xs text-lg text-center text-muted-foreground">Paid out in vDOT, to liquidity providers on eligible pools</p>
+      </div>
+      <div className="flex flex-col gap-4 items-center justify-center">
+        <h1 className="text-4xl font-bold text-secondary max-w-sm text-center">Expansive coverage</h1>
+        <p className="max-w-xs text-lg text-center text-muted-foreground">4 ecosystems, 5 protocols</p>
       </div>
     </main>
   );
