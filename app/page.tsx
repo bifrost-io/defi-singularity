@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-24 min-h-screen bg-background pb-8">
+    <main className="flex flex-col gap-24 min-h-screen bg-background pb-16">
       {/* Hero Section with just the image and text */}
       <div className="h-screen relative flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -90,8 +90,8 @@ export default function Home() {
             <div className="flex flex-row gap-8 border border-muted rounded-lg p-4">
               <div className="flex flex-col gap-2">
                 <h2 className="text-lg font-bold">Yield bearing rewards</h2>
-                <p className="text-muted-foreground">
-                Rewards are boosted by being a{" "}<Link href="https://bifrost.io" className="text-primary font-semibold inline-flex items-center">Bifrost LST <ExternalLink className="w-4 h-4 ml-1" /></Link>
+                <p className="text-muted-foreground text-sm">
+                Rewards are issued as{" "}<Link href="https://bifrost.io" className="text-primary font-semibold inline-flex items-center">Bifrost LST <ExternalLink className="w-4 h-4 ml-1" /></Link>
                 </p>
               </div>
               <div className="flex flex-row gap-2 items-center justify-center my-4">
@@ -106,7 +106,7 @@ export default function Home() {
             <div className="flex flex-row gap-8 border border-muted rounded-lg p-4">
               <div className="flex flex-col gap-2">
                 <h2 className="text-lg font-bold">Verifiable security</h2>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   Assets are bridged by{" "}
                   <Link href="https://hyperbridge.network" className="text-primary font-semibold inline-flex items-center">
                     Hyperbridge <ExternalLink className="w-4 h-4 ml-1" />
@@ -125,10 +125,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 items-center justify-cente px-2 md:px-8r">
+      <div className="flex flex-row gap-2 items-center justify-center px-2 md:px-8 h-[280px]">
         <h1 className="text-4xl font-bold text-primary max-w-sm text-center">
-          Powered by Polkadot
+          Powered by 
         </h1>
+        <Image src="/polkadot-full.svg" alt="Polkadot" width={200} height={200} />
       </div>
     </main>
   );
