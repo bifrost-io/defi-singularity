@@ -63,28 +63,64 @@ export default function Home() {
           <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
             <h2 className="text-lg font-bold">Unified</h2>
             <p className="text-muted-foreground">5 ecosystems, 6 protocols</p>
+            <div className="flex flex-row gap-2 items-center justify-center my-4">
+              <Image
+                src="/unified.svg"
+                alt="Unified"
+                width={150}
+                height={150}
+              />
+            </div>
           </div>
           <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
             <h2 className="text-lg font-bold">Liquidity mining</h2>
             <p className="text-muted-foreground">
               Provide liquidity and earn rewards
             </p>
+            <div className="flex flex-row gap-2 items-center justify-center my-4">
+              <Image
+                src="/liquidity.svg"
+                alt="Liquidity"
+                width={150}
+                height={150}
+              />
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-4">
-            <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
-              <h2 className="text-lg font-bold">Yield bearing rewards</h2>
-              <p className="text-muted-foreground">
+            <div className="flex flex-row gap-8 border border-muted rounded-lg p-4">
+              <div className="flex flex-col gap-2">
+                <h2 className="text-lg font-bold">Yield bearing rewards</h2>
+                <p className="text-muted-foreground">
                 Rewards are boosted by being a{" "}<Link href="https://bifrost.io" className="text-primary font-semibold inline-flex items-center">Bifrost LST <ExternalLink className="w-4 h-4 ml-1" /></Link>
-              </p>
+                </p>
+              </div>
+              <div className="flex flex-row gap-2 items-center justify-center my-4">
+                <Image
+                  src="/yield.svg"
+                  alt="Yield"
+                  width={75}
+                  height={75}
+                />
+              </div>
             </div>
-            <div className="flex flex-col gap-2 border border-muted rounded-lg p-4">
-              <h2 className="text-lg font-bold">Verifiable security</h2>
-              <p className="text-muted-foreground">
-                Assets are bridged by{" "}
-                <Link href="https://hyperbridge.network" className="text-primary font-semibold inline-flex items-center">
-                  Hyperbridge <ExternalLink className="w-4 h-4 ml-1" />
-                </Link>
-              </p>
+            <div className="flex flex-row gap-8 border border-muted rounded-lg p-4">
+              <div className="flex flex-col gap-2">
+                <h2 className="text-lg font-bold">Verifiable security</h2>
+                <p className="text-muted-foreground">
+                  Assets are bridged by{" "}
+                  <Link href="https://hyperbridge.network" className="text-primary font-semibold inline-flex items-center">
+                    Hyperbridge <ExternalLink className="w-4 h-4 ml-1" />
+                  </Link>
+                </p>
+              </div>
+              <div className="flex flex-row gap-2 items-center justify-center my-4">
+                <Image
+                  src="/hyperbridge.svg"
+                  alt="Hyperbridge"
+                  width={75}
+                  height={75}
+                />
+              </div>
             </div>
           </div>
         </div>
