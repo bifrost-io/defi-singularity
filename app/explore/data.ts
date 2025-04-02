@@ -12,6 +12,7 @@ export interface Pool {
   protocolLogo: string;
   description: string;
   address: string;
+  tags: string[];
 }
 
 export const pools = [
@@ -22,12 +23,13 @@ export const pools = [
     baseAssetLogo: "/dot.svg",
     quoteAsset: "ETH",
     quoteAssetName: "Ether",
-    quoteAssetLogo: "/eth.svg",
+    quoteAssetLogo: "/ether.svg",
     ecosystem: "Ethereum",
     ecosystemLogo: "/eth.svg",
     protocol: "Uniswap",
     protocolLogo: "/uniswap.svg",
-    description: "Liquidity mining pool for DOT/USDT",
+    description: "Top quality pool",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
+    tags: ["High APR", "High Liquidity"],
   }
 ]
