@@ -54,7 +54,7 @@ export default function Home() {
         <p className="max-w-xs text-lg text-center text-muted-foreground">
           Paid out in vDOT, to liquidity providers on eligible pools
         </p>
-        <Image src="/dot.svg" alt="DOT" width={600} height={600} />
+        <Image src="/incentive.svg" alt="DOT" width={600} height={600} />
       </div>
       <div className="flex flex-col gap-4 px-4 md:px-8">
         <p className="text-muted-foreground">On the event horizon...</p>
