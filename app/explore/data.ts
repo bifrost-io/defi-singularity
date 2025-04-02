@@ -238,7 +238,7 @@ export const pools = [
     quoteAssetLogo: "/ether.svg",
     ecosystem: "BNB Chain",
     ecosystemLogo: "/bnb.svg",
-    protocol: "PancakeSwap",
+    protocol: "Pancakewwap",
     protocolLogo: "/pancakeswap.svg",
     incentive: 85000,
     incentiveToken: "DOT",
