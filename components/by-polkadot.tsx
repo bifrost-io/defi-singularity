@@ -4,13 +4,13 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import Image from "next/image"
 const words = [
-  "VERIFIED",
-  "COMPUTED",
-  "PROGRAMMED",
-  "EXECUTED",
-  "POWERED",
-  "SECURED",
-  "BUILT",
+  "Verified",
+  "Computed",
+  "Connected",
+  "Executed",
+  "Powered",
+  "Secured",
+  "Finalized",
 ]
 
 export default function ByPolkadot() {
@@ -27,10 +27,9 @@ export default function ByPolkadot() {
   return (
     <div className="flex min-h-screen items-center justify-center p-8">
       <div
-        className="flex flex-row gap-8 items-center justify-center text-3xl font-vvriting"
-        style={{ fontFamily: "VVriting, sans-serif" }}
+        className="flex flex-row gap-4 md:gap-8 items-center justify-center text-xl md:text-4xl font-bold"
       >
-        <div className="relative overflow-hidden w-[300px] h-[60px]">
+        <div className="relative overflow-hidden w-[200px] md:w-[300px] h-[60px]">
           <AnimatePresence mode="wait">
             <motion.span
               key={words[currentIndex]}
@@ -47,8 +46,10 @@ export default function ByPolkadot() {
             </motion.span>
           </AnimatePresence>
         </div>
-        <div className="flex items-center">ON</div>
-        <Image src="/polkadot-full.svg" alt="Polkadot" width={200} height={200} />
+        <div className="flex items-center">By</div>
+        <div className="flex items-center">
+          <Image src="/polkadot-full.svg" alt="Polkadot" width={200} height={200} />
+        </div>
       </div>
     </div>
   )
