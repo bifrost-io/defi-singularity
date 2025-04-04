@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { formatAccountingNumber } from "@/lib/utils";
+import GuideStepper from "@/components/guide-stepper";
+
 
 export default async function PoolPage({
   params,
@@ -138,10 +140,11 @@ export default async function PoolPage({
             <p className="text-lg">{poolData.description}</p>
           </div>
           <div className="flex flex-col gap-2 mt-6">
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-2 items-center mb-4">
               <Info />
               <h1 className="text-2xl">Guides</h1>
             </div>
+            <GuideStepper slug={pool} />
           </div>
         </div>
       </div>
