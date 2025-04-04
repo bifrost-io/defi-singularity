@@ -1,5 +1,5 @@
 import { pools } from "@/app/explore/data";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ListTodo } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -91,29 +91,54 @@ export default async function PoolPage({
               <h1 className="text-lg md:text-xl">{poolData.ecosystem}</h1>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-6">
+            <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
+              <h1 className="text-md md:text-lg text-muted-foreground">
+                Total Incentives
+              </h1>
+              <div className="flex flex-row gap-2 items-center">
+                <p className="text-2xl">
+                  {formatAccountingNumber(poolData.incentive)}
+                </p>
+                <Image
+                  src={poolData.incentiveTokenLogo}
+                  alt={poolData.incentiveToken}
+                  width={24}
+                  height={24}
+                />
+                <p className="text-2xl">{poolData.incentiveToken}</p>
+              </div>
+            </div>
             <div className="grid grid-cols-2 p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
               <div className="flex flex-col gap-2">
-                <h1 className="text-md md:text-lg text-muted-foreground">APY</h1>
+                <h1 className="text-md md:text-lg text-muted-foreground">
+                  APY
+                </h1>
                 <p className="text-2xl">17%</p>
               </div>
               <div className="flex flex-col gap-2">
-                <h1 className="text-md md:text-lg text-muted-foreground">30d Avg APY</h1>
+                <h1 className="text-md md:text-lg text-muted-foreground">
+                  30d Avg APY
+                </h1>
                 <p className="text-2xl">17%</p>
               </div>
             </div>
             <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
-              <h1 className="text-md md:text-lg text-muted-foreground">Total Value Locked</h1>
+              <h1 className="text-md md:text-lg text-muted-foreground">
+                Total Value Locked
+              </h1>
               <p className="text-2xl">${formatAccountingNumber(1000000)}</p>
             </div>
-            <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
-              <h1 className="text-md md:text-lg text-muted-foreground">Total Incentive</h1>
-              <p className="text-2xl">${formatAccountingNumber(poolData.incentive)}</p>
+          </div>
+          <div className="flex flex-col gap-2 mt-6">
+            <div className="flex flex-row gap-2 items-center">
+              <ListTodo />
+              <h1 className="text-2xl">Rules</h1>
             </div>
+            <p className="text-lg">{poolData.description}</p>
           </div>
         </div>
       </div>
     </main>
   );
 }
-
