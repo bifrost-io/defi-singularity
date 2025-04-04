@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import ByPolkadot from "@/components/by-polkadot";
+
 
 export default function Home() {
   return (
@@ -126,12 +128,13 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-row gap-2 items-center justify-center px-2 md:px-8 h-[280px]">
-        <h1 className="text-lg md:text-4xl font-bold text-primary">
+        {/* <h1 className="text-lg md:text-4xl font-bold text-primary">
           Powered by 
         </h1>
         <div className="flex flex-row items-center justify-center h-[100px]">
           <Image src="/polkadot-full.svg" alt="Polkadot" width={200} height={200} />
-        </div>
+        </div> */}
+        <ByPolkadot />
       </div>
     </main>
   );
