@@ -64,8 +64,8 @@ export default function PoolCard({ pool }: { pool: Pool }) {
       </div>
       <div className="flex-grow flex items-end justify-end px-4 pb-6">
         <Button asChild className="rounded-md w-fit">
-          <Link href={`/pool/${pool.id}`}>
-            Deposit
+          <Link href={`/explore/${pool.baseAsset.replace(" ", "").toLowerCase()}-${pool.quoteAsset.replace(" ", "").toLowerCase()}-${pool.protocol.replace(" ", "").toLowerCase()}-${pool.ecosystem.replace(" ", "").toLowerCase()}`}>
+            View
             <ExternalLink className="w-4 h-4" />
           </Link>
         </Button>
