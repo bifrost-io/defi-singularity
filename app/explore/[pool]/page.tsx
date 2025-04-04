@@ -7,6 +7,13 @@ import { formatAccountingNumber } from "@/lib/utils";
 import GuideStepper from "@/components/guide-stepper";
 
 
+export async function generateStaticParams() {
+ 
+  return pools.map((pool) => ({
+    pool: pool.baseAsset.replace(" ", "").toLowerCase() + "-" + pool.quoteAsset.replace(" ", "").toLowerCase() + "-" + pool.protocol.replace(" ", "").toLowerCase() + "-" + pool.ecosystem.replace(" ", "").toLowerCase(),
+  }))
+}
+
 export default async function PoolPage({
   params,
 }: {
@@ -151,3 +158,4 @@ export default async function PoolPage({
     </main>
   );
 }
+
