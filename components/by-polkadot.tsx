@@ -29,7 +29,7 @@ export default function ByPolkadot() {
       <div
         className="flex flex-row gap-4 md:gap-8 items-center justify-center text-xl md:text-4xl font-bold"
       >
-        <div className="relative overflow-hidden w-[200px] md:w-[300px] h-[60px]">
+        <div className="relative w-[160px] md:w-[300px] h-[60px]">
           <AnimatePresence mode="wait">
             <motion.span
               key={words[currentIndex]}

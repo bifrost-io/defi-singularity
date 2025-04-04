@@ -9,8 +9,8 @@ export default function Footer() {
         <Image
           src="/logo.svg"
           alt="DeFi singularity logo"
-          width={100}
-          height={100}
+          width={80}
+          height={80}
         />
           <p className="text-2xl font-bold">DeFi Singularity</p>
         </div>

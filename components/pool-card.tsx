@@ -1,7 +1,7 @@
 import { Pool } from "@/app/explore/data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Sprout, ExternalLink } from 'lucide-react';
+import { Sprout, ArrowRight } from 'lucide-react';
 import Image from "next/image";
 import { formatAccountingNumber } from "@/lib/utils";
 
@@ -66,7 +66,7 @@ export default function PoolCard({ pool }: { pool: Pool }) {
         <Button asChild className="rounded-md w-fit">
           <Link href={`/explore/${pool.baseAsset.replace(" ", "").toLowerCase()}-${pool.quoteAsset.replace(" ", "").toLowerCase()}-${pool.protocol.replace(" ", "").toLowerCase()}-${pool.ecosystem.replace(" ", "").toLowerCase()}`}>
             View
-            <ExternalLink className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </Button>
       </div>
