@@ -16,6 +16,7 @@ export interface Pool {
   description: string;
   address: string;
   tags: string[];
+  poolUrl: string;
 }
 
 export const pools = [
@@ -37,6 +38,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 2,
@@ -56,6 +58,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 3,
@@ -75,6 +78,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 4,
@@ -94,6 +98,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 5,
@@ -113,6 +118,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 6,
@@ -132,6 +138,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 7,
@@ -151,6 +158,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 8,
@@ -170,6 +178,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 9,
@@ -189,6 +198,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 10,
@@ -208,6 +218,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 11,
@@ -227,6 +238,7 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   },
   {
     id: 12,
@@ -238,7 +250,7 @@ export const pools = [
     quoteAssetLogo: "/ether.svg",
     ecosystem: "BNB Chain",
     ecosystemLogo: "/bnb.svg",
-    protocol: "Pancakewwap",
+    protocol: "Pancakeswap",
     protocolLogo: "/pancakeswap.svg",
     incentive: 85000,
     incentiveToken: "DOT",
@@ -246,5 +258,6 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0x1234567890123456789012345678901234567890",
     tags: ["High APR", "High Liquidity"],
+    poolUrl: "https://app.uniswap.org/",
   }
 ]
