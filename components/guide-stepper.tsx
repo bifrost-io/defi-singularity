@@ -37,7 +37,7 @@ export default function GuideStepper({ slug }: { slug: string }) {
                     Buying from a centralized exchange like Binance, OKX, Bybit or Coinbase
                   </li>
                   <li>
-                    Swapping from a decentralized exchange like <Link className="underline underline-offset-4" target="_blank" href={poolData?.poolUrl || ""}>{poolData?.protocol}<ExternalLink className="w-4 h-4 ml-1 inline" /></Link> or <Link className="underline underline-offset-4" target="_blank" href="https://app.hydration.net/">Hydration<ExternalLink className="w-4 h-4 ml-1 inline" /></Link>
+                    Swapping from a decentralized exchange like <Link className="underline underline-offset-4" target="_blank" href={poolData?.poolUrl || ""}>{poolData?.protocol}<ExternalLink className="w-4 h-4 ml-1 inline" /></Link> or <Link className="underline underline-offset-4" target="_blank" href="https://app.hydration.net/"><Image src="/hydration.svg" alt="Hydration" width={20} height={20} className="inline mb-2" /> Hydration<ExternalLink className="w-4 h-4 ml-1 inline" /></Link>
                   </li>
                 </ul>
               ) : (
@@ -46,7 +46,7 @@ export default function GuideStepper({ slug }: { slug: string }) {
                     Minting directly on <Link className="underline underline-offset-4" target="_blank" href="https://app.bifrost.io/">Bifrost<ExternalLink className="w-4 h-4 ml-1 inline" /></Link>
                   </li>
                   <li>
-                    Swapping from a decentralized exchange like <Link className="underline underline-offset-4" target="_blank" href={poolData?.poolUrl || ""}>{poolData?.protocol}<ExternalLink className="w-4 h-4 ml-1 inline" /></Link> or <Link className="underline underline-offset-4" target="_blank" href="https://app.hydration.net/">Hydration<ExternalLink className="w-4 h-4 ml-1 inline" /></Link>
+                    Swapping from a decentralized exchange like <Link className="underline underline-offset-4" target="_blank" href={poolData?.poolUrl || ""}>{poolData?.protocol}<ExternalLink className="w-4 h-4 ml-1 inline" /></Link> or <Link className="underline underline-offset-4" target="_blank" href="https://app.hydration.net/"><Image src="/hydration.svg" alt="Hydration" width={20} height={20} className="inline mb-2" /> Hydration<ExternalLink className="w-4 h-4 ml-1 inline" /></Link>
                   </li>
                 </ul>
               )
