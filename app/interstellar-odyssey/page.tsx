@@ -27,7 +27,7 @@ export default function InterstellarOdyssey() {
             height={900}
           />
           <div className="absolute inset-0 bg-background/50 flex items-center justify-center">
-            <h1 className="text-7xl font-bold text-primary">
+            <h1 className="text-2xl md:text-7xl font-bold text-primary">
               Interstellar Odyssey
             </h1>
           </div>
@@ -119,9 +119,9 @@ export default function InterstellarOdyssey() {
           </div>
           <p className="text-lg">
             Here are some ideas that you can build. Of course, you can build
-            anything you want but only ideas that are aligned with the goal DeFi
-            Singularity would be eligible for grants. And the goal is increasing
-            adoption of{" "}
+            anything you want but only ideas that are aligned with the goal of
+            DeFi Singularity would be eligible for grants. And the goal is
+            increasing adoption of{" "}
             <Image
               src="/dot.svg"
               alt="DOT"
@@ -139,6 +139,34 @@ export default function InterstellarOdyssey() {
             />
             vDOT.
           </p>
+          <ul className="list-disc list-inside">
+            <li>LP management tool</li>
+            <li>LP position rehypothecation</li>
+            <li>Uniswap V4 Hooks for LPs</li>
+            <li>Onboarding tool for new LPs</li>
+            <li>... and more!</li>
+          </ul>
+          <p>
+            Open a{" "}
+            <Link
+              href="https://github.com/bifrost-io/mono/discussions"
+              className="underline underline-offset-4"
+              target="_blank"
+            >
+              Discussion on GitHub
+              <ExternalLink className="inline ml-1 w-4 h-4" />
+            </Link>{" "}
+            or message{" "}
+            <Link
+              href="https://x.com/FrostyLst"
+              className="underline underline-offset-4"
+              target="_blank"
+            >
+              FrostyLst
+              <ExternalLink className="inline ml-1 w-4 h-4" />
+            </Link>{" "}
+            to talk more about your idea.
+          </p>
         </div>
         <div className="flex flex-col gap-2 mt-6">
           <div className="flex flex-row gap-2 items-center">
@@ -146,10 +174,23 @@ export default function InterstellarOdyssey() {
             <h1 className="text-2xl">Requirements</h1>
           </div>
           <p className="text-lg">
-            As part of the DeFi Singularity program, Bifrost will also run a
-            parallel initiative for builders that want to leverage the main
-            campaign to build their next break out DeFi project.
+            There are a few rules that you need to follow to be eligible for
+            grants.
           </p>
+          <ul className="list-disc list-inside">
+            <li>
+              Fully open source is a requirement so please include all the
+              relevant repos in your submission.
+            </li>
+            <li>
+              You can submit multiple times for the same project but each
+              submission should have a key improvement to core features.
+            </li>
+            <li>
+              Your project should be deployed on at least one of the testnet or
+              mainnet in DeFi Singularity.
+            </li>
+          </ul>
         </div>
       </div>
     </main>
