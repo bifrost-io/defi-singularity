@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Compass, Lightbulb, ListChecks, ExternalLink } from "lucide-react";
+import {
+  ArrowLeft,
+  Compass,
+  Lightbulb,
+  ListChecks,
+  ExternalLink,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function InterstellarOdyssey() {
@@ -57,8 +63,9 @@ export default function InterstellarOdyssey() {
               Bifrost
               <ExternalLink className="inline ml-1 w-4 h-4" />
             </Link>{" "}
-            will also run a parallel initiative for builders that want to leverage
-            the main campaign to build their next break out DeFi project.
+            will also run a parallel initiative for builders that want to
+            leverage the main campaign to build their next break out DeFi
+            project.
           </p>
           <p className="text-lg">
             The initiative will run until the end of the{" "}
@@ -102,8 +109,7 @@ export default function InterstellarOdyssey() {
               Bifrost
               <ExternalLink className="inline ml-1 w-4 h-4" />
             </Link>
-            , we hope to
-            see great DeFi projects to come out of this initiative.
+            , we hope to see great DeFi projects to come out of this initiative.
           </p>
         </div>
         <div className="flex flex-col gap-2 mt-6">
@@ -112,9 +118,26 @@ export default function InterstellarOdyssey() {
             <h1 className="text-2xl">Ideas</h1>
           </div>
           <p className="text-lg">
-            As part of the DeFi Singularity program, Bifrost will also run a
-            parallel initiative for builders that want to leverage the main
-            campaign to build their next break out DeFi project.
+            Here are some ideas that you can build. Of course, you can build
+            anything you want but only ideas that are aligned with the goal DeFi
+            Singularity would be eligible for grants. And the goal is increasing
+            adoption of{" "}
+            <Image
+              src="/dot.svg"
+              alt="DOT"
+              width={20}
+              height={20}
+              className="inline mr-1"
+            />
+            DOT and{" "}
+            <Image
+              src="/vdot.svg"
+              alt="vDOT"
+              width={20}
+              height={20}
+              className="inline mr-1"
+            />
+            vDOT.
           </p>
         </div>
         <div className="flex flex-col gap-2 mt-6">
