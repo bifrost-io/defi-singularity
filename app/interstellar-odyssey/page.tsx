@@ -190,6 +190,27 @@ export default function InterstellarOdyssey() {
               Your project should be deployed on at least one of the testnet or
               mainnet in DeFi Singularity.
             </li>
+            <li>
+              Open a proposal on{" "}
+              <Link
+                href="https://github.com/bifrost-io/mono/issues"
+                className="underline underline-offset-4"
+                target="_blank"
+              >
+                GitHub
+                <ExternalLink className="inline ml-1 w-4 h-4" />
+              </Link>{" "}
+              to get started. More instructions{" "}
+              <Link
+                href="https://github.com/bifrost-io/mono/blob/main/builder-program/interstellar-odyssey.md#bounty-lifecycle"
+                className="underline underline-offset-4"
+                target="_blank"
+              >
+                here
+                <ExternalLink className="inline ml-1 w-4 h-4" />
+              </Link>{" "}
+              .
+            </li>
           </ul>
         </div>
       </div>

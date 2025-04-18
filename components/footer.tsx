@@ -58,24 +58,15 @@ export default function Footer() {
           <h2 className="text-lg font-bold">Links</h2>
           <Link
             className="text-muted-foreground w-fit"
-            target="_blank"
             href="/"
           >
             Home
           </Link>
           <Link
             className="text-muted-foreground w-fit"
-            target="_blank"
             href="/interstellar-odyssey"
           >
             Interstellar Odyssey
-          </Link>
-          <Link
-            className="text-muted-foreground w-fit"
-            target="_blank"
-            href="/support"
-          >
-            Support
           </Link>
         </div>
       </div>
