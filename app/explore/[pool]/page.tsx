@@ -79,8 +79,17 @@ export default async function PoolPage({
                 {poolData?.quoteAsset}
               </h1>
             </div>
-            <div className="flex flex-row gap-2 items-center md:items-end">
-              <p className="text-lg md:text-xl text-muted-foreground">On</p>
+            <div className="flex flex-row gap-2 items-center md:items-end ml-2">
+              <p className="text-lg md:text-xl text-muted-foreground">Deployed on</p>
+              <Image
+                src={poolData.subProtocolLogo}
+                alt={poolData.subProtocol}
+                width={24}
+                height={24}
+                className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
+              />
+              <h1 className="text-lg md:text-xl">{poolData.subProtocol}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground">hook of</p>
               <Image
                 src={poolData.protocolLogo}
                 alt={poolData.protocol}
@@ -89,7 +98,7 @@ export default async function PoolPage({
                 className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
               />
               <h1 className="text-lg md:text-xl">{poolData.protocol}</h1>
-              <p className="text-lg md:text-xl text-muted-foreground">of</p>
+              <p className="text-lg md:text-xl text-muted-foreground">on</p>
               <Image
                 src={poolData.ecosystemLogo}
                 alt={poolData.ecosystem}
