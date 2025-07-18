@@ -6,12 +6,17 @@ import Image from "next/image";
 import { formatAccountingNumber } from "@/lib/utils";
 import GuideStepper from "@/components/guide-stepper";
 
-
 export async function generateStaticParams() {
- 
   return pools.map((pool) => ({
-    pool: pool.baseAsset.replace(" ", "").toLowerCase() + "-" + pool.quoteAsset.replace(" ", "").toLowerCase() + "-" + pool.protocol.replace(" ", "").toLowerCase() + "-" + pool.ecosystem.replace(" ", "").toLowerCase(),
-  }))
+    pool:
+      pool.baseAsset.replace(" ", "").toLowerCase() +
+      "-" +
+      pool.quoteAsset.replace(" ", "").toLowerCase() +
+      "-" +
+      pool.protocol.replace(" ", "").toLowerCase() +
+      "-" +
+      pool.ecosystem.replace(" ", "").toLowerCase(),
+  }));
 }
 
 export default async function PoolPage({
@@ -55,7 +60,7 @@ export default async function PoolPage({
           </Link>
         </Button>
         <div className="flex flex-col gap-4 md:gap-8">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-2">
+          <div className="flex flex-col lg:flex-row gap-6 md:gap-2">
             <div className="flex flex-row gap-2 items-center">
               <Image
                 src={poolData.baseAssetLogo}
@@ -79,34 +84,44 @@ export default async function PoolPage({
                 {poolData?.quoteAsset}
               </h1>
             </div>
-            <div className="flex flex-row gap-2 items-center md:items-end ml-2">
-              <p className="text-lg md:text-xl text-muted-foreground">Deployed on</p>
-              <Image
-                src={poolData.subProtocolLogo}
-                alt={poolData.subProtocol}
-                width={24}
-                height={24}
-                className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
-              />
-              <h1 className="text-lg md:text-xl">{poolData.subProtocol}</h1>
-              <p className="text-lg md:text-xl text-muted-foreground">hook of</p>
-              <Image
-                src={poolData.protocolLogo}
-                alt={poolData.protocol}
-                width={24}
-                height={24}
-                className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
-              />
-              <h1 className="text-lg md:text-xl">{poolData.protocol}</h1>
-              <p className="text-lg md:text-xl text-muted-foreground">on</p>
-              <Image
-                src={poolData.ecosystemLogo}
-                alt={poolData.ecosystem}
-                width={24}
-                height={24}
-                className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
-              />
-              <h1 className="text-lg md:text-xl">{poolData.ecosystem}</h1>
+            <div className="grid grid-cols-1 md:flex md:flex-wrap gap-2 ml-2">
+              <div className="flex flex-row gap-2 items-center md:items-end">
+                <p className="text-lg md:text-xl text-muted-foreground">
+                  Deployed on
+                </p>
+                <Image
+                  src={poolData.subProtocolLogo}
+                  alt={poolData.subProtocol}
+                  width={24}
+                  height={24}
+                  className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
+                />
+                <h1 className="text-lg md:text-xl">{poolData.subProtocol}</h1>
+              </div>
+              <div className="flex flex-row gap-2 items-center md:items-end">
+                <p className="text-lg md:text-xl text-muted-foreground">
+                  hook of
+                </p>
+                <Image
+                  src={poolData.protocolLogo}
+                  alt={poolData.protocol}
+                  width={24}
+                  height={24}
+                  className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
+                />
+                <h1 className="text-lg md:text-xl">{poolData.protocol}</h1>
+              </div>
+              <div className="flex flex-row gap-2 items-center md:items-end">
+                <p className="text-lg md:text-xl text-muted-foreground">on</p>
+                <Image
+                  src={poolData.ecosystemLogo}
+                  alt={poolData.ecosystem}
+                  width={24}
+                  height={24}
+                  className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
+                />
+                <h1 className="text-lg md:text-xl">{poolData.ecosystem}</h1>
+              </div>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-6">
@@ -167,4 +182,3 @@ export default async function PoolPage({
     </main>
   );
 }
-
