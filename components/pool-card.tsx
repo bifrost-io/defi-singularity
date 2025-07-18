@@ -29,13 +29,18 @@ export default function PoolCard({ pool }: { pool: Pool }) {
         </div>
       </div>
       <div className="flex flex-col gap-1 px-4">
-        <p className="text-sm text-muted-foreground">On</p>
+        <p className="text-sm text-muted-foreground">Deployed on</p>
         <div className="flex flex-row gap-2 items-center">
+          <Image src={pool.subProtocolLogo} alt={pool.subProtocol} width={20} height={20} />
+          <h1 className="text-sm">
+            {pool.subProtocol}
+          </h1>
+          <p className="text-muted-foreground">hook of</p>
           <Image src={pool.protocolLogo} alt={pool.protocol} width={20} height={20} />
           <h1 className="text-sm">
             {pool.protocol}
           </h1>
-          <p className="text-muted-foreground">of</p>
+          <p className="text-muted-foreground">on</p>
           <Image src={pool.ecosystemLogo} alt={pool.ecosystem} width={20} height={20} />
           <h1 className="text-sm">
             {pool.ecosystem}
