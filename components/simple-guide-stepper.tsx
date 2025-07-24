@@ -145,19 +145,45 @@ export default function SimpleGuideStepper({ poolData }: { poolData: Pool }) {
           <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
             <h1 className="text-xl">Mint {poolData?.baseAsset} on Bifrost</h1>
             <p className="text-lg text-muted-foreground">
-              You can bridge between different chains by using{" "}
+              You can mint{" "}
               <Image
-                src="/hyperbridge.svg"
-                alt="Hyperbridge"
+                src="/vdot.svg"
+                alt="vDOT"
                 width={20}
                 height={20}
                 className="inline mb-2"
               />{" "}
-              Hyperbridge
+              vDOT using the Bifrost Dapp. First, navigate to the vDOT minting interface, click the <span className="font-bold">Transfer</span> button next to the minting input field, and follow the UI to bridge DOT{" "}
+              <Image
+                src="/dot.svg"
+                alt="DOT"
+                width={20}
+                height={20}
+                className="inline mb-2"
+              />{" "}
+              from the Polkadot network to the Bifrost network. Once DOT is
+              received on Bifrost, enter the desired{" "}
+              <Image
+                src="/dot.svg"
+                alt="DOT"
+                width={20}
+                height={20}
+                className="inline mb-2"
+              />{" "}
+              DOT amount and click{" "}
+              <span className="font-bold">Mint</span> to mint{" "}
+              <Image
+                src="/vdot.svg"
+                alt="vDOT"
+                width={20}
+                height={20}
+                className="inline mb-2"
+              />{" "}
+              vDOT.
             </p>
             <Button asChild className="w-fit self-end">
-              <Link target="_blank" href="https://app.hyperbridge.network/">
-                Go to Hyperbridge
+              <Link target="_blank" href="https://app.bifrost.io/">
+                Go to Bifrost
                 <ExternalLink />
               </Link>
             </Button>
@@ -176,19 +202,43 @@ export default function SimpleGuideStepper({ poolData }: { poolData: Pool }) {
           <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
             <h1 className="text-xl">Bridging</h1>
             <p className="text-lg text-muted-foreground">
-              You can bridge between different chains by using{" "}
-              <Image
-                src="/hyperbridge.svg"
-                alt="Hyperbridge"
-                width={20}
-                height={20}
-                className="inline mb-2"
-              />{" "}
-              Hyperbridge
+            Use the cross-chain functionality on the{" "}
+            <Image
+              src="/bifrost.svg"
+              alt="Bifrost"
+              width={20}
+              height={20}
+              className="inline mb-2"
+            />{" "}
+            Bifrost Dapp to bridge{" "}
+            <Image
+              src="/vdot.svg"
+              alt="vDOT"
+              width={20}
+              height={20}
+              className="inline mb-2"
+            />{" "}
+            vDOT to the {poolData?.ecosystem} network. In the crosschain page,
+            switch the target network to {poolData?.ecosystem}, select{" "}
+            <Image
+              src="/vdot.svg"
+              alt="vDOT"
+              width={20}
+              height={20}
+              className="inline mb-2"
+            />{" "}
+            vDOT as the asset to bridge, enter the desired{" "}
+            <Image
+              src="/vdot.svg"
+              alt="vDOT"
+              width={20}
+              height={20}
+              className="inline mb-2"
+            />{" "}vDOT amount, and sign the transaction to complete the bridging process.{" "}
             </p>
             <Button asChild className="w-fit self-end">
-              <Link target="_blank" href="https://app.hyperbridge.network/">
-                Go to Hyperbridge
+              <Link target="_blank" href="https://app.bifrost.io/crosschain?network=polkadot">
+                Go to Bridge
                 <ExternalLink />
               </Link>
             </Button>

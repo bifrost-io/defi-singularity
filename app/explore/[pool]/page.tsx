@@ -204,7 +204,7 @@ export default async function PoolPage({
             </p>
           </div>
           <div className="flex flex-col gap-2 mt-6">
-            <Tabs defaultValue="account" className="w-[400px]">
+            <Tabs defaultValue="simple" className="w-full">
               <div className="flex flex-row gap-2 items-center">
                 <Info />
                 <h1 className="text-2xl">Guides</h1>
@@ -213,15 +213,13 @@ export default async function PoolPage({
                   <TabsTrigger value="advanced">Advanced</TabsTrigger>
                 </TabsList>
               </div>
-
-              <TabsContent value="account">
-                Make changes to your account here.
+              <TabsContent value="simple">
+                <SimpleGuideStepper poolData={poolData} />
               </TabsContent>
-              <TabsContent value="password">
-                Change your password here.
+              <TabsContent value="advanced">
+                <AdvancedGuideStepper poolData={poolData} />
               </TabsContent>
             </Tabs>
-            <SimpleGuideStepper poolData={poolData} />
           </div>
         </div>
       </div>
