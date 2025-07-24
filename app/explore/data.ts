@@ -18,6 +18,7 @@ export interface Pool {
   description: string;
   address: string;
   tags: string[];
+  swapUrl: string;
   poolUrl: string;
   apr: string;
   fee: string;
@@ -72,7 +73,8 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:1/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd",
     tags: ["High APR", "High Liquidity"],
-    poolUrl: "https://app.uniswap.org/swap?chain=arbitrum&inputCurrency=ETH&outputCurrency=0xbc33b4d48f76d17a1800afcb730e8a6aaada7fe5",
+    swapUrl: "https://app.uniswap.org/swap?chain=ethereum&inputCurrency=ETH&outputCurrency=0xbc33b4d48f76d17a1800afcb730e8a6aaada7fe5",
+    poolUrl: "https://app.uniswap.org/explore/pools/ethereum/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",
     startTimestamp: 1721856000,
@@ -123,7 +125,8 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:42161/0x1462eda3ab4d44cd593c3e22e323bbf7058dabdc84a8d6cc8bdfb2428bd77547",
     tags: ["High APR", "High Liquidity"],
-    poolUrl: "https://bunni.xyz/explore/pools/arbitrum/0x1462eda3ab4d44cd593c3e22e323bbf7058dabdc84a8d6cc8bdfb2428bd77547?ref=defisingularity.com",
+    swapUrl: "https://app.uniswap.org/swap?chain=arbitrum&inputCurrency=ETH&outputCurrency=0xbc33b4d48f76d17a1800afcb730e8a6aaada7fe5",
+    poolUrl: "https://app.uniswap.org/explore/pools/arbitrum/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",
     startTimestamp: 1721856000,
@@ -175,7 +178,8 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:8453/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd",
     tags: ["High APR", "High Liquidity"],
-    poolUrl: "https://bunni.xyz/explore/pools/base/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd?chain=base&ref=defisingularity.com",
+    swapUrl: "https://app.uniswap.org/swap?chain=base&inputCurrency=ETH&outputCurrency=0xbc33b4d48f76d17a1800afcb730e8a6aaada7fe5",
+    poolUrl: "https://app.uniswap.org/explore/pools/base/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",  
     startTimestamp: 1721856000,
@@ -227,7 +231,8 @@ export const pools = [
     description: "Liquidity providers will be required to provide a minimum of $10,000 in liquidity for a minimum of 1 month to be eligible for rewards, with rewards distributed monthly.",
     address: "eip155:56/0x48323603dde908bfbd512c4c723e28ea9c7ee7f5558f7bcc9cafa798c039b9bd",
     tags: ["High APR", "High Liquidity"],
-    poolUrl: "https://bunni.xyz/explore/pools/bsc/0x48323603dde908bfbd512c4c723e28ea9c7ee7f5558f7bcc9cafa798c039b9bd?chain=bsc&ref=defisingularity.com",
+    swapUrl: "https://app.uniswap.org/swap?chain=bnb&inputCurrency=eth&outputCurrency=0xbc33b4d48f76d17a1800afcb730e8a6aaada7fe5",
+    poolUrl: "https://app.uniswap.org/explore/pools/bnb/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",
     startTimestamp: 1721856000,
