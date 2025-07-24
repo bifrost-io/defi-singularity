@@ -83,6 +83,9 @@ export default async function PoolPage({
               <h1 className="text-3xl md:text-5xl font-bold">
                 {poolData?.quoteAsset}
               </h1>
+              <p className="border border-muted-foreground bg-muted-foreground/20 rounded-md p-1 px-2 text-sm text-muted-foreground self-end">
+                {poolData.fee}
+              </p>
             </div>
             <div className="grid grid-cols-1 md:flex md:flex-wrap gap-2 ml-2">
               <div className="flex flex-row gap-2 items-center md:items-end">
@@ -169,18 +172,17 @@ export default async function PoolPage({
             <div className="flex flex-col gap-2">
               <p>
                 During the event period, users who provide liquidity (LP) to the{" "}
-                {poolData.protocol} {poolData.baseAsset}/{poolData.quoteAsset}{" "}
-                V4 0.3% pool on {poolData.ecosystem} and hold their LP tokens will
-                automatically participate in the incentive program. Rewards will
-                be distributed via {poolData.subProtocol}. Based on{" "}
+                {poolData.baseAsset}/{poolData.quoteAsset} {poolData.protocol}{" "}
+                V4 0.3% pool on {poolData.ecosystem} and hold their LP tokens
+                will automatically participate in the incentive program. Rewards
+                will be distributed via {poolData.subProtocol}. Based on{" "}
                 {poolData.subProtocol}’s reward pool configuration:
               </p>
             </div>
             <ul className="list-disc list-inside">
               <li>
                 35% of the rewards will be allocated to the{" "}
-                {poolData.quoteAsset}
-                portion of the LP.
+                {poolData.quoteAsset} portion of the LP.
               </li>
               <li>
                 45% of the rewards will be allocated to the {poolData.baseAsset}{" "}

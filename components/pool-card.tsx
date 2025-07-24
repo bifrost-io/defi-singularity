@@ -9,22 +9,25 @@ export default function PoolCard({ pool }: { pool: Pool }) {
   return (
     <div className="flex flex-col gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
       <div className="flex flex-row justify-between border-b border-muted p-4 bg-secondary">
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-1 items-center">
           <Image
             src={pool.baseAssetLogo}
             alt={pool.baseAsset}
-            width={28}
-            height={28}
+            width={24}
+            height={24}
           />
-          <h1 className="text-2xl font-bold">{pool.baseAsset}</h1>
-          <h1 className="text-2xl font-bold">/</h1>
+          <h1 className="text-xl font-bold">{pool.baseAsset}</h1>
+          <h1 className="text-xl font-bold">/</h1>
           <Image
             src={pool.quoteAssetLogo}
             alt={pool.quoteAsset}
-            width={28}
-            height={28}
+            width={24}
+            height={24}
           />
-          <h1 className="text-2xl font-bold">{pool.quoteAsset}</h1>
+          <h1 className="text-xl font-bold">{pool.quoteAsset}</h1>
+          <p className="ml-1 border border-muted-foreground bg-muted-foreground/20 rounded-md py-1 px-2 text-sm text-muted-foreground self-end">
+            {pool.fee}
+          </p>
         </div>
         <div className="flex flex-row gap-2 items-center">
           <p className="text-2xl text-muted-foreground">APR</p>
