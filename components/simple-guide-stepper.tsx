@@ -1,18 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
-import { pools } from "@/app/explore/data";
+import { Pool } from "@/app/explore/data";
 import Image from "next/image";
 
-export default function GuideStepper({ slug }: { slug: string }) {
-  const poolData = pools.find(
-    (p) =>
-      p.baseAsset.replace(" ", "").toLowerCase() === slug.split("-")[0] &&
-      p.quoteAsset.replace(" ", "").toLowerCase() === slug.split("-")[1] &&
-      p.protocol.replace(" ", "").toLowerCase() === slug.split("-")[2] &&
-      p.ecosystem.replace(" ", "").toLowerCase() === slug.split("-")[3]
-  );
-
+export default function SimpleGuideStepper({ poolData }: { poolData: Pool }) {
   return (
     <div className="flex flex-col w-full md:w-3/4">
       <div className="flex flex-row gap-4">
@@ -24,9 +16,20 @@ export default function GuideStepper({ slug }: { slug: string }) {
         </div>
         <div className="flex flex-col w-full">
           <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
-            <h1 className="text-xl">Get the tokens</h1>
+            <h1 className="text-xl">
+              Get {poolData?.baseAsset} and {poolData?.quoteAsset}
+            </h1>
             <p className="text-lg text-muted-foreground">
-              You can get{" "}
+              On the{" "}
+              <Image
+                src={poolData?.ecosystemLogo || ""}
+                alt={poolData?.ecosystem || ""}
+                width={20}
+                height={20}
+                className="inline mb-2"
+              />{" "}
+              {poolData?.ecosystem} network, use DEXs to directly swap an
+              appropriate amount of{" "}
               <Image
                 src={poolData?.baseAssetLogo || ""}
                 alt={poolData?.baseAsset || ""}
@@ -34,8 +37,23 @@ export default function GuideStepper({ slug }: { slug: string }) {
                 height={20}
                 className="inline mb-2"
               />{" "}
-              {poolData?.baseAsset} from these sources:
+              {poolData?.baseAsset} and{" "}
+              <Image
+                src={poolData?.quoteAssetLogo || ""}
+                alt={poolData?.quoteAsset || ""}
+                width={20}
+                height={20}
+                className="inline mb-2"
+              />{" "}
+              {poolData?.quoteAsset} to prepare assets for subsequent
+              operations.
             </p>
+            <Button asChild className="w-fit self-end">
+              <Link target="_blank" href={poolData?.poolUrl || ""}>
+                Go to Uniswap
+                <ExternalLink />
+              </Link>
+            </Button>
             {poolData?.baseAsset === "DOT" ? (
               <ul className="flex flex-col gap-4 list-disc list-inside text-muted-foreground">
                 <li>

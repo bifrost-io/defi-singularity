@@ -3,8 +3,10 @@ import { ArrowLeft, ListTodo, Info, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { formatAccountingNumber } from "@/lib/utils";
-import GuideStepper from "@/components/guide-stepper";
+import { formatAccountingNumber, formatTimeLeft } from "@/lib/utils";
+import SimpleGuideStepper from "@/components/simple-guide-stepper";
+import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export async function generateStaticParams() {
   return pools.map((pool) => ({
@@ -141,6 +143,9 @@ export default async function PoolPage({
                   height={24}
                 />
                 <p className="text-2xl">{poolData.incentiveToken}</p>
+                <p className="border border-muted-foreground bg-muted-foreground/20 rounded-md p-1 px-2 text-sm text-muted-foreground">
+                  {formatTimeLeft(poolData.endTimestamp)} left
+                </p>
               </div>
             </div>
             <div className="grid grid-cols-2 p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
@@ -199,11 +204,24 @@ export default async function PoolPage({
             </p>
           </div>
           <div className="flex flex-col gap-2 mt-6">
-            <div className="flex flex-row gap-2 items-center mb-4">
-              <Info />
-              <h1 className="text-2xl">Guides</h1>
-            </div>
-            <GuideStepper slug={pool} />
+            <Tabs defaultValue="account" className="w-[400px]">
+              <div className="flex flex-row gap-2 items-center">
+                <Info />
+                <h1 className="text-2xl">Guides</h1>
+                <TabsList className="flex flex-row gap-2 items-center ml-2">
+                  <TabsTrigger value="simple">Simple</TabsTrigger>
+                  <TabsTrigger value="advanced">Advanced</TabsTrigger>
+                </TabsList>
+              </div>
+
+              <TabsContent value="account">
+                Make changes to your account here.
+              </TabsContent>
+              <TabsContent value="password">
+                Change your password here.
+              </TabsContent>
+            </Tabs>
+            <SimpleGuideStepper poolData={poolData} />
           </div>
         </div>
       </div>
