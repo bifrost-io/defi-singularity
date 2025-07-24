@@ -29,7 +29,7 @@ export function formatTimeline(startTimestamp: number, endTimestamp: number) {
     return "ended";
   }
   
-  return formatTimeRemaining(timeLeft, "");
+  return formatTimeRemaining(timeLeft, "ends in");
 }
 
 function formatTimeRemaining(timeInSeconds: number, prefix: string) {

@@ -77,8 +77,8 @@ export const pools = [
     poolUrl: "https://app.uniswap.org/explore/pools/ethereum/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",
-    startTimestamp: 1721856000,
-    endTimestamp: 1755995039,
+    startTimestamp: 1753437600,
+    endTimestamp: 1761040800,
   },
   // {
   //   id: 6,
@@ -129,8 +129,8 @@ export const pools = [
     poolUrl: "https://app.uniswap.org/explore/pools/arbitrum/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",
-    startTimestamp: 1721856000,
-    endTimestamp: 1755995039,
+    startTimestamp: 1753437600,
+    endTimestamp: 1761040800,
   },
   // {
   //   id: 9,
@@ -182,8 +182,8 @@ export const pools = [
     poolUrl: "https://app.uniswap.org/explore/pools/base/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",  
-    startTimestamp: 1721856000,
-    endTimestamp: 1755995039,
+    startTimestamp: 1753437600,
+    endTimestamp: 1761040800,
   },
   // {
   //   id: 11,
@@ -235,7 +235,7 @@ export const pools = [
     poolUrl: "https://app.uniswap.org/explore/pools/bnb/0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0",
     apr: "17",
     fee: "0.3%",
-    startTimestamp: 1721856000,
-    endTimestamp: 1755995039,
+    startTimestamp: 1753437600,
+    endTimestamp: 1761040800,
   },
 ]
