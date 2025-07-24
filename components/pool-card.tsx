@@ -13,38 +13,28 @@ export default function PoolCard({ pool }: { pool: Pool }) {
           <Image
             src={pool.baseAssetLogo}
             alt={pool.baseAsset}
-            width={20}
-            height={20}
+            width={28}
+            height={28}
           />
-          <h1 className="text-xl font-bold">{pool.baseAsset}</h1>
-          <h1 className="text-xl font-bold">/</h1>
+          <h1 className="text-2xl font-bold">{pool.baseAsset}</h1>
+          <h1 className="text-2xl font-bold">/</h1>
           <Image
             src={pool.quoteAssetLogo}
             alt={pool.quoteAsset}
-            width={20}
-            height={20}
+            width={28}
+            height={28}
           />
-          <h1 className="text-xl font-bold">{pool.quoteAsset}</h1>
+          <h1 className="text-3xl font-bold">{pool.quoteAsset}</h1>
         </div>
         <div className="flex flex-row gap-2 items-center">
-          <Sprout className="w-5 h-5" />
-          <h1 className="text-xl font-bold">17%</h1>
+          <p className="text-2xl text-muted-foreground">APR</p>
+          <h1 className="text-2xl font-bold text-green-400">{pool.apr}%</h1>
         </div>
       </div>
       <div className="flex flex-col gap-1 px-4">
         <p className="text-sm text-muted-foreground">Deployed on</p>
-        <div className="flex flex-col lg:flex-wrap gap-2">
+        <div className="flex flex-col md:flex-wrap lg:flex-row gap-2">
           <div className="flex flex-row gap-2 items-center">
-            <Image
-              src={pool.subProtocolLogo}
-              alt={pool.subProtocol}
-              width={20}
-              height={20}
-            />
-            <h1 className="text-sm">{pool.subProtocol}</h1>
-          </div>
-          <div className="flex flex-row gap-2 items-center">
-            <p className="text-muted-foreground">hook of</p>
             <Image
               src={pool.protocolLogo}
               alt={pool.protocol}

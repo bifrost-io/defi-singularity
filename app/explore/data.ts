@@ -19,6 +19,7 @@ export interface Pool {
   address: string;
   tags: string[];
   poolUrl: string;
+  apr: string;
 }
 
 export const pools = [
@@ -43,6 +44,7 @@ export const pools = [
     address: "eip155:1/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd",
     tags: ["High APR", "High Liquidity"],
     poolUrl: "https://bunni.xyz/explore/pools/mainnet/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd?chain=mainnet&ref=defisingularity.com",
+    apr: "17",
   },
   {
     id: 6,
@@ -65,6 +67,7 @@ export const pools = [
     address: "eip155:42161/0x1462eda3ab4d44cd593c3e22e323bbf7058dabdc84a8d6cc8bdfb2428bd77547",
     tags: ["High APR", "High Liquidity"],
     poolUrl: "https://bunni.xyz/explore/pools/arbitrum/0x1462eda3ab4d44cd593c3e22e323bbf7058dabdc84a8d6cc8bdfb2428bd77547?ref=defisingularity.com",
+    apr: "17",
   },
   {
     id: 9,
@@ -87,6 +90,7 @@ export const pools = [
     address: "eip155:8453/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd",
     tags: ["High APR", "High Liquidity"],
     poolUrl: "https://bunni.xyz/explore/pools/base/0xec8d8d7c033f92492ab5c18272bae93324d12a5c452db1e2da0c63deb9e24dcd?chain=base&ref=defisingularity.com",
+    apr: "17",
   },
   {
     id: 10,
@@ -109,5 +113,6 @@ export const pools = [
     address: "eip155:56/0x48323603dde908bfbd512c4c723e28ea9c7ee7f5558f7bcc9cafa798c039b9bd",
     tags: ["High APR", "High Liquidity"],
     poolUrl: "https://bunni.xyz/explore/pools/bsc/0x48323603dde908bfbd512c4c723e28ea9c7ee7f5558f7bcc9cafa798c039b9bd?chain=bsc&ref=defisingularity.com",
+    apr: "17",
   },
 ]
