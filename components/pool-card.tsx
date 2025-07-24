@@ -1,7 +1,7 @@
 import { Pool } from "@/app/explore/data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Sprout, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { formatAccountingNumber } from "@/lib/utils";
 
@@ -24,7 +24,7 @@ export default function PoolCard({ pool }: { pool: Pool }) {
             width={28}
             height={28}
           />
-          <h1 className="text-3xl font-bold">{pool.quoteAsset}</h1>
+          <h1 className="text-2xl font-bold">{pool.quoteAsset}</h1>
         </div>
         <div className="flex flex-row gap-2 items-center">
           <p className="text-2xl text-muted-foreground">APR</p>

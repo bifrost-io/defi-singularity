@@ -1,5 +1,5 @@
 import { pools } from "@/app/explore/data";
-import { ArrowLeft, ListTodo, Info } from "lucide-react";
+import { ArrowLeft, ListTodo, Info, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -90,24 +90,11 @@ export default async function PoolPage({
                   Deployed on
                 </p>
                 <Image
-                  src={poolData.subProtocolLogo}
-                  alt={poolData.subProtocol}
-                  width={24}
-                  height={24}
-                  className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
-                />
-                <h1 className="text-lg md:text-xl">{poolData.subProtocol}</h1>
-              </div>
-              <div className="flex flex-row gap-2 items-center md:items-end">
-                <p className="text-lg md:text-xl text-muted-foreground">
-                  hook of
-                </p>
-                <Image
                   src={poolData.protocolLogo}
                   alt={poolData.protocol}
-                  width={24}
-                  height={24}
-                  className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
+                  width={20}
+                  height={20}
+                  className="w-[20px] h-[20px] md:w-[40px] md:h-[40px]"
                 />
                 <h1 className="text-lg md:text-xl">{poolData.protocol}</h1>
               </div>
@@ -116,11 +103,22 @@ export default async function PoolPage({
                 <Image
                   src={poolData.ecosystemLogo}
                   alt={poolData.ecosystem}
-                  width={24}
-                  height={24}
-                  className="w-[24px] h-[24px] md:w-[40px] md:h-[40px]"
+                  width={20}
+                  height={20}
+                  className="w-[20px] h-[20px] md:w-[40px] md:h-[40px]"
                 />
                 <h1 className="text-lg md:text-xl">{poolData.ecosystem}</h1>
+              </div>
+              <div className="flex flex-row gap-2 items-center md:items-end">
+                <p className="text-lg md:text-xl text-muted-foreground">via</p>
+                <Image
+                  src={poolData.subProtocolLogo}
+                  alt={poolData.subProtocol}
+                  width={20}
+                  height={20}
+                  className="w-[20px] h-[20px] md:w-[40px] md:h-[40px]"
+                />
+                <h1 className="text-lg md:text-xl">{poolData.subProtocol}</h1>
               </div>
             </div>
           </div>
@@ -145,13 +143,13 @@ export default async function PoolPage({
             <div className="grid grid-cols-2 p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
               <div className="flex flex-col gap-2">
                 <h1 className="text-md md:text-lg text-muted-foreground">
-                  APY
+                  APR
                 </h1>
                 <p className="text-2xl">17%</p>
               </div>
               <div className="flex flex-col gap-2">
                 <h1 className="text-md md:text-lg text-muted-foreground">
-                  30d Avg APY
+                  30d Avg APR
                 </h1>
                 <p className="text-2xl">17%</p>
               </div>
@@ -168,7 +166,35 @@ export default async function PoolPage({
               <ListTodo />
               <h1 className="text-2xl">Rules</h1>
             </div>
-            <p className="text-lg">{poolData.description}</p>
+            <div className="flex flex-col gap-2">
+              <p>
+                During the event period, users who provide liquidity (LP) to the{" "}
+                {poolData.protocol} {poolData.baseAsset}/{poolData.quoteAsset}{" "}
+                V4 0.3% pool on {poolData.ecosystem} and hold their LP tokens will
+                automatically participate in the incentive program. Rewards will
+                be distributed via {poolData.subProtocol}. Based on{" "}
+                {poolData.subProtocol}’s reward pool configuration:
+              </p>
+            </div>
+            <ul className="list-disc list-inside">
+              <li>
+                35% of the rewards will be allocated to the{" "}
+                {poolData.quoteAsset}
+                portion of the LP.
+              </li>
+              <li>
+                45% of the rewards will be allocated to the {poolData.baseAsset}{" "}
+                portion of the LP.
+              </li>
+              <li>20% of the rewards will be allocated to active LPs.</li>
+            </ul>
+            <p className="flex flex-row gap-2 items-center border border-yellow-500 bg-yellow-500/10 rounded-lg p-4 w-fit mt-4">
+              <TriangleAlert className="w-4 h-4 text-yellow-500" />
+              <span className="text-sm text-yellow-500">
+                Liquidity positions that do not include the current price range
+                are not eligible for incentives.
+              </span>
+            </p>
           </div>
           <div className="flex flex-col gap-2 mt-6">
             <div className="flex flex-row gap-2 items-center mb-4">
