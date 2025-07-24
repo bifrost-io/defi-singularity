@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { formatAccountingNumber, formatTimeLeft } from "@/lib/utils";
+import { formatAccountingNumber, formatTimeline } from "@/lib/utils";
 
 export default function PoolCard({ pool }: { pool: Pool }) {
   return (
@@ -72,7 +72,7 @@ export default function PoolCard({ pool }: { pool: Pool }) {
           />
           <h1 className="text-md">{pool.incentiveToken}</h1>
           <p className="border border-muted-foreground bg-muted-foreground/20 rounded-md p-1 px-2 text-sm text-muted-foreground">
-            {formatTimeLeft(pool.endTimestamp)} left
+            {formatTimeline(pool.startTimestamp, pool.endTimestamp)}
           </p>
         </div>
       </div>

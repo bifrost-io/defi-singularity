@@ -12,8 +12,16 @@ export function formatAccountingNumber(number: number) {
   });
 }
 
-export function formatTimeLeft(endTimestamp: number) {
+export function formatTimeline(startTimestamp: number, endTimestamp: number) {
   const now = Date.now() / 1000;
+  
+  // If current time is before start time
+  if (now < startTimestamp) {
+    const timeUntilStart = startTimestamp - now;
+    return formatTimeRemaining(timeUntilStart, "starts in");
+  }
+  
+  // If current time is after start but before/at end
   const timeLeft = endTimestamp - now;
   
   // If time has already passed
@@ -21,45 +29,45 @@ export function formatTimeLeft(endTimestamp: number) {
     return "ended";
   }
   
+  return formatTimeRemaining(timeLeft, "");
+}
+
+function formatTimeRemaining(timeInSeconds: number, prefix: string) {
   // Less than or equal to a minute
-  if (timeLeft <= 60) {
-    return "soon";
+  if (timeInSeconds <= 60) {
+    return prefix ? `${prefix} soon` : "soon";
   }
   
   // Less than 60 minutes
-  if (timeLeft < 60 * 60) {
-    const mins = Math.floor(timeLeft / 60);
-    return `${mins} mins`;
+  if (timeInSeconds < 60 * 60) {
+    const mins = Math.floor(timeInSeconds / 60);
+    const result = `${mins} mins`;
+    return prefix ? `${prefix} ${result}` : result;
   }
   
   // Less than 24 hours
-  if (timeLeft < 24 * 60 * 60) {
-    const hours = Math.round(timeLeft / (60 * 60));
-    if (hours === 1) {
-      return `${hours} hour`;
-    }
-    return `${hours} hours`;
+  if (timeInSeconds < 24 * 60 * 60) {
+    const hours = Math.round(timeInSeconds / (60 * 60));
+    const result = hours === 1 ? `${hours} hour` : `${hours} hours`;
+    return prefix ? `${prefix} ${result}` : result;
   }
   
   // Less than 30 days (1 month)
-  if (timeLeft < 30 * 24 * 60 * 60) {
-    const days = Math.floor(timeLeft / (24 * 60 * 60));
-    if (days === 1) {
-      return `${days} day`;
-    }
-    return `${days} days`;
+  if (timeInSeconds < 30 * 24 * 60 * 60) {
+    const days = Math.floor(timeInSeconds / (24 * 60 * 60));
+    const result = days === 1 ? `${days} day` : `${days} days`;
+    return prefix ? `${prefix} ${result}` : result;
   }
   
   // Less than a year (12 months)
-  if (timeLeft < 365 * 24 * 60 * 60) {
-    const months = Math.floor(timeLeft / (30 * 24 * 60 * 60));
-    if (months === 1) {
-      return `${months} month`;
-    }
-    return `${months} months`;
+  if (timeInSeconds < 365 * 24 * 60 * 60) {
+    const months = Math.floor(timeInSeconds / (30 * 24 * 60 * 60));
+    const result = months === 1 ? `${months} month` : `${months} months`;
+    return prefix ? `${prefix} ${result}` : result;
   }
   
   // More than a year
-  const years = Math.floor(timeLeft / (365 * 24 * 60 * 60));
-  return `${years} years`;
+  const years = Math.floor(timeInSeconds / (365 * 24 * 60 * 60));
+  const result = `${years} years`;
+  return prefix ? `${prefix} ${result}` : result;
 }

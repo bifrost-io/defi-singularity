@@ -3,7 +3,7 @@ import { ArrowLeft, ListTodo, Info, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { formatAccountingNumber, formatTimeLeft } from "@/lib/utils";
+import { formatAccountingNumber, formatTimeline } from "@/lib/utils";
 import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -144,7 +144,7 @@ export default async function PoolPage({
                 />
                 <p className="text-2xl">{poolData.incentiveToken}</p>
                 <p className="border border-muted-foreground bg-muted-foreground/20 rounded-md p-1 px-2 text-sm text-muted-foreground">
-                  {formatTimeLeft(poolData.endTimestamp)} left
+                  {formatTimeline(poolData.startTimestamp, poolData.endTimestamp)}
                 </p>
               </div>
             </div>
