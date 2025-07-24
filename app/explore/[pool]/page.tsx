@@ -208,9 +208,9 @@ export default async function PoolPage({
               <div className="flex flex-row gap-2 items-center">
                 <Info />
                 <h1 className="text-2xl">Guides</h1>
-                <TabsList className="flex flex-row gap-2 items-center ml-2">
-                  <TabsTrigger value="simple">Simple</TabsTrigger>
-                  <TabsTrigger value="advanced">Advanced</TabsTrigger>
+                <TabsList className="flex flex-row gap-2 items-center ml-2 p-[6px] h-12">
+                  <TabsTrigger className="text-lg px-4 py-4" value="simple">Simple</TabsTrigger>
+                  <TabsTrigger className="text-lg px-4 py-4" value="advanced">Advanced</TabsTrigger>
                 </TabsList>
               </div>
               <TabsContent value="simple">
