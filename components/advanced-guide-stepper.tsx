@@ -256,10 +256,10 @@ export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
               />{" "}
               {poolData?.quoteAsset} 0.3% pool. You can choose an appropriate
               liquidity range and token amounts based on your risk tolerance and
-              preferences. <span className="bg-yellow-500 text-black p-1">Please note that only active liquidity within the
+              preferences. Please note that only active liquidity within the
               current price range is eligible to participate in farming.
               Unilateral liquidity that is temporarily inactive will likely not
-              receive any incentives during the event period.</span>
+              receive any incentives during the event period.
             </p>
             <Button asChild className="w-fit self-end">
               <Link target="_blank" href={poolData?.poolUrl || ""}>
