@@ -8,18 +8,8 @@ import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export async function generateStaticParams() {
-  return pools.map((pool) => ({
-    pool:
-      pool.baseAsset.replace(" ", "").toLowerCase() +
-      "-" +
-      pool.quoteAsset.replace(" ", "").toLowerCase() +
-      "-" +
-      pool.protocol.replace(" ", "").toLowerCase() +
-      "-" +
-      pool.ecosystem.replace(" ", "").toLowerCase(),
-  }));
-}
+// Removed generateStaticParams to enable server-side rendering
+// This ensures formatTimeline runs on each request with current time
 
 export default async function PoolPage({
   params,
