@@ -8,7 +8,7 @@ import { formatAccountingNumber, formatTimeline } from "@/lib/utils";
 export default function PoolCard({ pool }: { pool: Pool }) {
   return (
     <div className="flex flex-col gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
-      <div className="flex flex-row justify-between border-b border-muted p-4 bg-secondary">
+      <div className="flex flex-wrap gap-2 justify-between border-b border-muted p-4 bg-secondary">
         <div className="flex flex-row gap-1 items-center">
           <Image
             src={pool.baseAssetLogo}
