@@ -276,15 +276,12 @@ export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
           <div className="rounded-full p-4 flex items-center justify-center h-10 w-10 border border-muted">
             5
           </div>
-          <div className="border-l-2 border-muted h-full w-0 ml-5" />
         </div>
         <div className="flex flex-col w-full">
           <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
-            <h1 className="text-xl">
-              Automatic Participation in Merkl&apos;s Campaign
-            </h1>
+            <h1 className="text-xl">Claiming Campaign Incentives</h1>
             <p className="text-lg text-muted-foreground">
-              As long as your address holds LP tokens for the{" "}
+            As long as your address holds LP tokens for the{" "}
               <Image
                 src={poolData?.protocolLogo || ""}
                 alt={poolData?.protocol || ""}
@@ -318,31 +315,7 @@ export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
                 className="inline mb-2"
               />{" "}
               Merkl&apos;s incentive campaign, with no additional actions
-              required.
-            </p>
-            <Button asChild className="w-fit self-end">
-              <Link
-                target="_blank"
-                href="https://app.bifrost.io/crosschain?network=polkadot"
-              >
-                Go to Bridge
-                <ExternalLink />
-              </Link>
-            </Button>
-          </div>
-          <div className="h-[20px]" />
-        </div>
-      </div>
-      <div className="flex flex-row gap-4">
-        <div className="flex flex-col">
-          <div className="rounded-full p-4 flex items-center justify-center h-10 w-10 border border-muted">
-            6
-          </div>
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
-            <h1 className="text-xl">Claiming Campaign Incentives</h1>
-            <p className="text-lg text-muted-foreground">
+              required.{" "}
               <Image
                 src="/merkl.svg"
                 alt="Merkl"
