@@ -7,9 +7,25 @@ import { formatAccountingNumber, formatTimeline } from "@/lib/utils";
 import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { MERKL_API_URL } from "@/lib/constants";
 
-// Removed generateStaticParams to enable server-side rendering
-// This ensures formatTimeline runs on each request with current time
+// Type definition for Merkl API response
+interface MerklPoolData {
+  chainId: number;
+  tvl: number;
+  apr: number;
+  identifier: string;
+  name: string;
+  status: string;
+}
+
+// Map chain IDs to ecosystem names
+const chainIdToEcosystem: Record<number, string> = {
+  1: "Ethereum",
+  8453: "Base",
+  42161: "Arbitrum",
+  56: "BNB Chain",
+};
 
 export default async function PoolPage({
   params,
@@ -17,8 +33,31 @@ export default async function PoolPage({
   params: Promise<{ pool: string }>;
 }) {
   const { pool } = await params;
+  const data = await fetch(MERKL_API_URL)
+  const merklData = await data.json()
 
-  const poolData = pools.find(
+  // Merge pools with Merkl data to override APR and TVL
+  const poolsWithRealTimeData = !merklData || !Array.isArray(merklData) 
+    ? pools 
+    : pools.map((pool) => {
+        // Find matching Merkl data by ecosystem
+        const merklPool = merklData.find((merklItem: MerklPoolData) => {
+          const ecosystem = chainIdToEcosystem[merklItem.chainId];
+          return ecosystem === pool.ecosystem;
+        });
+
+        if (merklPool) {
+          return {
+            ...pool,
+            apr: Math.round(merklPool.apr).toLocaleString(),
+            tvl: merklPool.tvl,
+          };
+        }
+
+        return pool;
+      });
+
+  const poolData = poolsWithRealTimeData.find(
     (p) =>
       p.baseAsset.replace(" ", "").toLowerCase() === pool.split("-")[0] &&
       p.quoteAsset.replace(" ", "").toLowerCase() === pool.split("-")[1] &&
