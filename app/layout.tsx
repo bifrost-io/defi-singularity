@@ -22,11 +22,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'DeFi Singularity',
   description: 'Enter a new era of crosschain DeFi',
-  metadataBase: new URL('https://www.defisingularity.com'),
+  metadataBase: new URL('https://defisingularity.com'),
   openGraph: {
     title: 'DeFi Singularity',
     description: 'Enter a new era of crosschain DeFi',
-    url: 'https://www.defisingularity.com',
+    url: 'https://defisingularity.com',
     siteName: 'DeFi Singularity',
     images: [ 
       {
