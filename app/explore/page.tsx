@@ -1,19 +1,78 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { pools } from "@/app/explore/data";
 import PoolCard from "@/components/pool-card";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { MERKL_API_URL } from "@/lib/constants";
+import { Skeleton } from "@/components/ui/skeleton";
 
+// Type definition for Merkl API response
+interface MerklPoolData {
+  chainId: number;
+  tvl: number;
+  apr: number;
+  identifier: string;
+  name: string;
+  status: string;
+}
+
+async function getMerklData(): Promise<MerklPoolData[]> {
+  const response = await fetch(MERKL_API_URL);
+  return response.json();
+}
+
+// Map chain IDs to ecosystem names
+const chainIdToEcosystem: Record<number, string> = {
+  1: "Ethereum",
+  8453: "Base",
+  42161: "Arbitrum",
+  56: "BNB Chain",
+};
 
 export default function Explore() {
+  const {
+    data: merklData,
+    isPending,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["merkl-data"],
+    queryFn: getMerklData,
+  });
 
   const [selectedEcosystem, setSelectedEcosystem] = useState<string>("All");
 
-  const filteredPools = pools.filter((pool) => 
+  // Merge pools with Merkl data to override APR and TVL
+  const poolsWithRealTimeData = useMemo(() => {
+    if (!merklData || !Array.isArray(merklData)) {
+      return pools;
+    }
+
+    return pools.map((pool) => {
+      // Find matching Merkl data by ecosystem
+      const merklPool = merklData.find((merklItem: MerklPoolData) => {
+        const ecosystem = chainIdToEcosystem[merklItem.chainId];
+        return ecosystem === pool.ecosystem;
+      });
+
+      if (merklPool) {
+        return {
+          ...pool,
+          apr: Math.round(merklPool.apr).toLocaleString(),
+          tvl: merklPool.tvl,
+        };
+      }
+
+      return pool;
+    });
+  }, [merklData]);
+
+  const filteredPools = poolsWithRealTimeData.filter((pool) =>
     selectedEcosystem === "All" ? true : pool.ecosystem === selectedEcosystem
   );
 
@@ -28,39 +87,39 @@ export default function Explore() {
         </Button>
         <h1 className="text-4xl font-bold">Explore</h1>
         <div className="flex flex-wrap gap-2">
-          <Button 
-            variant={selectedEcosystem === "All" ? "default" : "outline"} 
+          <Button
+            variant={selectedEcosystem === "All" ? "default" : "outline"}
             className="rounded-full w-fit"
             onClick={() => setSelectedEcosystem("All")}
           >
             All
           </Button>
-          <Button 
-            variant={selectedEcosystem === "Ethereum" ? "default" : "outline"} 
+          <Button
+            variant={selectedEcosystem === "Ethereum" ? "default" : "outline"}
             className="rounded-full w-fit"
             onClick={() => setSelectedEcosystem("Ethereum")}
           >
             <Image src="/ethereum.svg" alt="Ethereum" width={20} height={20} />
             Ethereum
           </Button>
-          <Button 
-            variant={selectedEcosystem === "Arbitrum" ? "default" : "outline"} 
+          <Button
+            variant={selectedEcosystem === "Arbitrum" ? "default" : "outline"}
             className="rounded-full w-fit"
             onClick={() => setSelectedEcosystem("Arbitrum")}
           >
             <Image src="/arbitrum.svg" alt="Arbitrum" width={20} height={20} />
             Arbitrum
           </Button>
-          <Button 
-            variant={selectedEcosystem === "Base" ? "default" : "outline"} 
+          <Button
+            variant={selectedEcosystem === "Base" ? "default" : "outline"}
             className="rounded-full w-fit"
             onClick={() => setSelectedEcosystem("Base")}
           >
             <Image src="/base.svg" alt="Base" width={20} height={20} />
             Base
           </Button>
-          <Button 
-            variant={selectedEcosystem === "BNB Chain" ? "default" : "outline"} 
+          <Button
+            variant={selectedEcosystem === "BNB Chain" ? "default" : "outline"}
             className="rounded-full w-fit"
             onClick={() => setSelectedEcosystem("BNB Chain")}
           >
@@ -68,10 +127,19 @@ export default function Explore() {
             BNB Chain
           </Button>
         </div>
+        {isError && (
+          <div className="col-span-3 bg-red-500 text-white p-4">
+            Error: {error.message}
+          </div>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {filteredPools.map((pool) => (
-            <PoolCard key={pool.id} pool={pool} />
-          ))}
+          {isPending ? (
+            Array.from({ length: 4 }).map((_, index) => (
+              <Skeleton key={index} className="w-full h-[410px]" />
+            ))
+          ) : (
+            filteredPools.map((pool) => <PoolCard key={pool.id} pool={pool} />)
+          )}
         </div>
       </div>
     </main>
