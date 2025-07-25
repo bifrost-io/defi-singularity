@@ -143,20 +143,20 @@ export default async function PoolPage({
                 <h1 className="text-md md:text-lg text-muted-foreground">
                   APR
                 </h1>
-                <p className="text-2xl">17%</p>
+                <p className="text-2xl">{poolData.apr}%</p>
               </div>
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
                 <h1 className="text-md md:text-lg text-muted-foreground">
                   30d Avg APR
                 </h1>
                 <p className="text-2xl">17%</p>
-              </div>
+              </div> */}
             </div>
             <div className="flex flex-col p-4 gap-4 border border-muted rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/10">
               <h1 className="text-md md:text-lg text-muted-foreground">
                 Total Value Locked
               </h1>
-              <p className="text-2xl">${formatAccountingNumber(1000000)}</p>
+              <p className="text-2xl">${formatAccountingNumber(poolData.tvl)}</p>
             </div>
           </div>
           <div className="flex flex-col gap-2 mt-6">

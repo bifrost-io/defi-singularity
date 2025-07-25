@@ -80,7 +80,7 @@ export default function PoolCard({ pool }: { pool: Pool }) {
         <p className="text-sm text-muted-foreground">TVL</p>
         <div className="flex flex-row gap-2 items-center">
           <h1 className="text-lg font-bold">
-            ${formatAccountingNumber(1000000)}
+            ${formatAccountingNumber(pool.tvl)}
           </h1>
         </div>
       </div>
