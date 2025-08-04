@@ -1,3 +1,5 @@
+"use client";
+
 import { pools } from "@/app/explore/data";
 import { ArrowLeft, ListTodo, Info, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,8 +10,14 @@ import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MERKL_API_URL } from "@/lib/constants";
-import ZapComponent from "@/components/zap-component";
+import dynamic from "next/dynamic";
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 
+const ZapComponent = dynamic(() => import("@/components/zap-component"), {
+  ssr: false,
+  loading: () => <div>Loading Zap Component...</div>,
+});
 
 // Type definition for Merkl API response
 interface MerklPoolData {
@@ -29,36 +37,43 @@ const chainIdToEcosystem: Record<number, string> = {
   56: "BNB Chain",
 };
 
-export default async function PoolPage({
-  params,
-}: {
-  params: Promise<{ pool: string }>;
-}) {
-  const { pool } = await params;
-  const data = await fetch(MERKL_API_URL)
-  const merklData = await data.json()
+async function getMerklData(): Promise<MerklPoolData[]> {
+  const response = await fetch(MERKL_API_URL);
+  return response.json();
+}
 
-
+export default function PoolPage() {
+  const params = useParams();
+  const pool = params.pool as string;
+  const {
+    data: merklData,
+    isPending,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["merkl-data"],
+    queryFn: getMerklData,
+  });
 
   // Merge pools with Merkl data to override APR and TVL
   const poolsWithRealTimeData = !merklData || !Array.isArray(merklData) 
     ? pools 
-    : pools.map((pool) => {
+    : pools.map((poolItem) => {
         // Find matching Merkl data by ecosystem
         const merklPool = merklData.find((merklItem: MerklPoolData) => {
           const ecosystem = chainIdToEcosystem[merklItem.chainId];
-          return ecosystem === pool.ecosystem;
+          return ecosystem === poolItem.ecosystem;
         });
 
         if (merklPool) {
           return {
-            ...pool,
+            ...poolItem,
             apr: Math.round(merklPool.apr).toLocaleString(),
             tvl: merklPool.tvl,
           };
         }
 
-        return pool;
+        return poolItem;
       });
 
   const poolData = poolsWithRealTimeData.find(
