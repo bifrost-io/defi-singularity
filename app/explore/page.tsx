@@ -10,6 +10,12 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { MERKL_API_URL } from "@/lib/constants";
 import { Skeleton } from "@/components/ui/skeleton";
+import dynamic from "next/dynamic";
+
+const ZapComponent = dynamic(() => import("@/components/ui/ZapComponent"), {
+  ssr: false,
+  loading: () => <div>Loading Zap Component...</div>,
+});
 
 // Type definition for Merkl API response
 interface MerklPoolData {
@@ -86,6 +92,7 @@ export default function Explore() {
           </Link>
         </Button>
         <h1 className="text-4xl font-bold">Explore</h1>
+        <ZapComponent />
         <div className="flex flex-wrap gap-2">
           <Button
             variant={selectedEcosystem === "All" ? "default" : "outline"}
