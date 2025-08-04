@@ -10,7 +10,7 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { MERKL_API_URL } from "@/lib/constants";
 import { Skeleton } from "@/components/ui/skeleton";
-import Header from "@/components/header";
+
 
 // Type definition for Merkl API response
 interface MerklPoolData {
