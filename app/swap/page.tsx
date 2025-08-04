@@ -3,8 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Widget } from "@kyberswap/widgets";
-
+import SwapComponent from "@/components/swap-component";
 
 export default function SwapPage() {
 
@@ -18,6 +17,7 @@ export default function SwapPage() {
           </Link>
         </Button>
         <h1 className="text-4xl font-bold">Swap</h1>
+        <SwapComponent />
       </div>
     </main>
   );

@@ -71,3 +71,7 @@ function formatTimeRemaining(timeInSeconds: number, prefix: string) {
   const result = `${years} years`;
   return prefix ? `${prefix} ${result}` : result;
 }
+
+export function truncateHash(hash: string, startLength: number = 6, endLength: number = 4) {
+  return `${hash.slice(0, startLength)}...${hash.slice(-endLength)}`;
+}

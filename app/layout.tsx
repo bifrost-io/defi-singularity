@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import '@rainbow-me/rainbowkit/styles.css';
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Providers from "@/app/providers";
@@ -9,16 +10,6 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 export const metadata: Metadata = {
   title: 'DeFi Singularity',

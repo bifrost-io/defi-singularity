@@ -8,6 +8,8 @@ import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MERKL_API_URL } from "@/lib/constants";
+import ZapComponent from "@/components/zap-component";
+
 
 // Type definition for Merkl API response
 interface MerklPoolData {
@@ -35,6 +37,8 @@ export default async function PoolPage({
   const { pool } = await params;
   const data = await fetch(MERKL_API_URL)
   const merklData = await data.json()
+
+
 
   // Merge pools with Merkl data to override APR and TVL
   const poolsWithRealTimeData = !merklData || !Array.isArray(merklData) 
@@ -251,6 +255,7 @@ export default async function PoolPage({
             </Tabs>
           </div>
         </div>
+        <ZapComponent />
       </div>
     </main>
   );
