@@ -2,13 +2,16 @@
 
 import { LiquidityWidget } from "@kyberswap/liquidity-widgets";
 import { PoolType } from "@kyberswap/liquidity-widgets";
-import '@kyberswap/liquidity-widgets/dist/style.css'
-import { useAccount, useChainId } from "wagmi";
+import "@kyberswap/liquidity-widgets/dist/style.css";
+import { useAccount, useChainId, useSwitchChain } from "wagmi";
 import { chainIdFromPoolParams } from "@/lib/utils";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
   const { address } = useAccount();
   const chainId = useChainId();
+  const { switchChain } = useSwitchChain();
+  const { openConnectModal } = useConnectModal();
 
   return (
     <div className="w-full">
@@ -37,9 +40,13 @@ export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
         poolType={PoolType.DEX_UNISWAP_V4}
         poolAddress="0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0"
         connectedAccount={{ address: address, chainId: chainId }}
-        onClose={() => console.log("Close")}
-        onConnectWallet={() => console.log("Connect wallet")}
-        onSwitchChain={() => console.log("Switch chain")}
+        onClose={() => {}}
+        onConnectWallet={() => {
+          openConnectModal?.();
+        }}
+        onSwitchChain={() =>
+          switchChain({ chainId: Number(chainIdFromPoolParams(pageChainId)) })
+        }
         onSubmitTx={async () => {
           console.log("Submit transaction");
           return "0x123"; // Mock transaction hash
