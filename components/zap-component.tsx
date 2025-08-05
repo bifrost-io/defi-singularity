@@ -6,12 +6,14 @@ import "@kyberswap/liquidity-widgets/dist/style.css";
 import { useAccount, useChainId, useSwitchChain } from "wagmi";
 import { chainIdFromPoolParams } from "@/lib/utils";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { useSendTransaction } from "wagmi";
 
 export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
   const { address } = useAccount();
   const chainId = useChainId();
   const { switchChain } = useSwitchChain();
   const { openConnectModal } = useConnectModal();
+  const { sendTransactionAsync } = useSendTransaction()
 
   return (
     <div className="w-full">
@@ -47,9 +49,29 @@ export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
         onSwitchChain={() =>
           switchChain({ chainId: Number(chainIdFromPoolParams(pageChainId)) })
         }
-        onSubmitTx={async () => {
-          console.log("Submit transaction");
-          return "0x123"; // Mock transaction hash
+        onSubmitTx={async (txData: {
+          from: string;
+          to: string;
+          value: string;
+          data: string;
+          gasLimit: string;
+        }): Promise<string> => {
+          if (!address) {
+            openConnectModal?.();
+            throw new Error("No wallet connected");
+          }
+          try {
+            const hash = await sendTransactionAsync({
+              account: txData.from as `0x${string}`,
+              to: txData.to as `0x${string}`,
+              data: txData.data as `0x${string}`,
+              value: BigInt(txData.value),
+            });
+            return hash;
+          } catch (e) {
+            console.log(e);
+            throw e;
+          }
         }}
         source="bifrost"
       />
