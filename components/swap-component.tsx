@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useBalance, useAccount, useChainId, useReadContracts, useSimulateContract } from "wagmi";
-import { formatUnits, parseUnits } from "viem";
+import { useBalance, useAccount, useChainId } from "wagmi";
+import { formatUnits } from "viem";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import {

@@ -13,10 +13,11 @@ import { MERKL_API_URL } from "@/lib/constants";
 import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const ZapComponent = dynamic(() => import("@/components/zap-component"), {
   ssr: false,
-  loading: () => <div>Loading Zap Component...</div>,
+  loading: () => <Skeleton className="w-full h-[500px]" />,
 });
 
 // Type definition for Merkl API response
