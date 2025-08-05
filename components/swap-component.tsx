@@ -11,7 +11,6 @@ import {
   ChevronsUpDown,
   RefreshCcw,
   Coins,
-  Quote
 } from "lucide-react";
 import {
   Dialog,
@@ -696,31 +695,31 @@ export default function CryptoSwap() {
           <div className="flex flex-col gap-2">
             <div className="flex flex-row gap-2 items-center mt-4 w-full h-14">
               <Button variant="outline" className="w-14 h-14 rounded-xl">
-                <Quote className="h-8 w-8" />
+                <RefreshCcw />
               </Button>
               {
                 sellAmount !== "" && swapTokenState === SwapTokenState.QUOTE ? (
                   <Button
-                    className="w-full rounded-xl h-14 text-lg"
+                    className="rounded-xl h-14 text-lg"
                   >
                     Find a quote
                   </Button>
                 ) : sellAmount === ""  ? (
                   <Button
-                    className="w-full rounded-xl h-14 text-lg"
+                    className="rounded-xl h-14 text-lg"
                     disabled={true}
                   >
                     Enter an amount
                   </Button>
                 ) : swapTokenState === SwapTokenState.READY ? (
                   <Button
-                    className="w-full rounded-xl h-14 text-lg"
+                    className="rounded-xl h-14 text-lg"
                   >
                     Review
                   </Button>
                 ) : (
                   <Button
-                    className="w-full rounded-xl h-14 text-lg"
+                    className="rounded-xl h-14 text-lg"
                   >
                     Swap
                   </Button>

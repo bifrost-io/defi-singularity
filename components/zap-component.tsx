@@ -38,7 +38,7 @@ export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
           buttonRadius: "24px",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.04)",
         }}
-        chainId={chainIdFromPoolParams(pageChainId) || "1"}
+        chainId={chainIdFromPoolParams(pageChainId)}
         poolType={PoolType.DEX_UNISWAP_V4}
         poolAddress="0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0"
         connectedAccount={{ address: address, chainId: chainId }}
@@ -47,7 +47,7 @@ export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
           openConnectModal?.();
         }}
         onSwitchChain={() =>
-          switchChain({ chainId: Number(chainIdFromPoolParams(pageChainId)) })
+          switchChain({ chainId: chainIdFromPoolParams(pageChainId) })
         }
         onSubmitTx={async (txData: {
           from: string;
