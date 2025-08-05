@@ -75,3 +75,18 @@ function formatTimeRemaining(timeInSeconds: number, prefix: string) {
 export function truncateHash(hash: string, startLength: number = 6, endLength: number = 4) {
   return `${hash.slice(0, startLength)}...${hash.slice(-endLength)}`;
 }
+
+export function chainIdFromPoolParams(pool: string) {
+  switch (pool.split("-")[3]) {
+    case "ethereum":
+      return "1";
+    case "base":
+      return "8453";
+    case "arbitrum":
+      return "42161";
+    case "bnbchain":
+      return "56";
+    default:
+      return "1";
+  }
+}

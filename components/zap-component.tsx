@@ -3,9 +3,11 @@
 import { LiquidityWidget } from "@kyberswap/liquidity-widgets";
 import { PoolType } from "@kyberswap/liquidity-widgets";
 import '@kyberswap/liquidity-widgets/dist/style.css'
-import { useChainId } from "wagmi";
+import { useAccount, useChainId } from "wagmi";
+import { chainIdFromPoolParams } from "@/lib/utils";
 
-export default function ZapComponent() {
+export default function ZapComponent({ pageChainId }: { pageChainId: string }) {
+  const { address } = useAccount();
   const chainId = useChainId();
 
   return (
@@ -31,10 +33,10 @@ export default function ZapComponent() {
           buttonRadius: "24px",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.04)",
         }}
-        chainId={chainId.toString()}
+        chainId={chainIdFromPoolParams(pageChainId) || "1"}
         poolType={PoolType.DEX_UNISWAP_V4}
         poolAddress="0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0"
-        connectedAccount={{ address: undefined, chainId: 1 }}
+        connectedAccount={{ address: address, chainId: chainId }}
         onClose={() => console.log("Close")}
         onConnectWallet={() => console.log("Connect wallet")}
         onSwitchChain={() => console.log("Switch chain")}

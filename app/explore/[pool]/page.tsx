@@ -270,7 +270,7 @@ export default function PoolPage() {
             </Tabs>
           </div>
         </div>
-        <ZapComponent />
+        <ZapComponent pageChainId={pool} />
       </div>
     </main>
   );
