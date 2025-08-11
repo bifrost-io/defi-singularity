@@ -68,7 +68,7 @@ export default function SimpleGuideStepper({ poolData }: { poolData: Pool }) {
             <div className="flex flex-row gap-2 self-end">
               <Button variant="outline" asChild className="w-fit self-end">
                 <Link target="_blank" href={poolData?.poolUrl || ""}>
-                  Add liquidity manually
+                  Add manually
                   <ExternalLink />
                 </Link>
               </Button>
