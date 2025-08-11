@@ -7,6 +7,7 @@ export interface Pool {
   quoteAssetName: string;
   quoteAssetLogo: string;
   ecosystem: string;
+  chainId: number;
   ecosystemLogo: string;
   protocol: string;
   protocolLogo: string;
@@ -37,6 +38,7 @@ export const pools = [
     quoteAssetName: "Ether",
     quoteAssetLogo: "/ether.svg",
     ecosystem: "Ethereum",
+    chainId: 1,
     ecosystemLogo: "/ethereum.svg",
     protocol: "Uniswap",
     protocolLogo: "/uniswap.svg",
@@ -65,6 +67,7 @@ export const pools = [
     quoteAssetName: "Ether",
     quoteAssetLogo: "/ether.svg",
     ecosystem: "Arbitrum",
+    chainId: 42161,
     ecosystemLogo: "/arbitrum.svg",
     protocol: "Uniswap",
     protocolLogo: "/uniswap.svg",
@@ -93,6 +96,7 @@ export const pools = [
     quoteAssetName: "Ether",
     quoteAssetLogo: "/ether.svg",
     ecosystem: "Base",
+    chainId: 8453,
     ecosystemLogo: "/base.svg",
     protocol: "Uniswap",
     protocolLogo: "/uniswap.svg",
@@ -121,6 +125,7 @@ export const pools = [
     quoteAssetName: "BNB",
     quoteAssetLogo: "/bnb.svg",
     ecosystem: "BNB Chain",
+    chainId: 56,
     ecosystemLogo: "/bnb.svg",
     protocol: "Uniswap",
     protocolLogo: "/uniswap.svg",

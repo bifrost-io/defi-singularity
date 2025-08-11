@@ -10,9 +10,9 @@ import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MERKL_API_URL } from "@/lib/constants";
-import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import dynamic from "next/dynamic";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const ZapComponent = dynamic(() => import("@/components/zap-component"), {
@@ -271,7 +271,6 @@ export default function PoolPage() {
             </Tabs>
           </div>
         </div>
-        <ZapComponent pageChainId={pool} />
       </div>
     </main>
   );
