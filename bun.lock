@@ -4,7 +4,7 @@
     "": {
       "name": "defi-singularity",
       "dependencies": {
-        "@kyberswap/liquidity-widgets": "1.1.27",
+        "@kyberswap/liquidity-widgets": "1.1.28",
         "@kyberswap/widgets": "^2.1.0",
         "@next/third-parties": "^15.2.4",
         "@radix-ui/react-dialog": "^1.1.14",
@@ -203,7 +203,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.29", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-uw6guiW/gcAGPDhLmd77/6lW8QLeiV5RUTsAX46Db6oLhGaVj4lhnPwb184s1bkc8kdVg/+h988dro8GRDpmYQ=="],
 
-    "@kyberswap/liquidity-widgets": ["@kyberswap/liquidity-widgets@1.1.27", "", { "dependencies": { "zustand": "^5.0.0" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-EHa+jBAJ1lZUm/DPK/b6AxV8xH2s7ByM+nA9PI1jTlhopkM1BTy4go45daPtyClDMleTitQd0I2FgVEIjWSrCA=="],
+    "@kyberswap/liquidity-widgets": ["@kyberswap/liquidity-widgets@1.1.28", "", { "dependencies": { "zustand": "^5.0.0" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-XwB3dWvVMTg48WZwU+SGKvarq3WtfrTVTabUcph3IYABj0ntzOGvsQHRv1gpGmldpeUw/Scs13bvl9JblyxDAw=="],
 
     "@kyberswap/widgets": ["@kyberswap/widgets@2.1.0", "", { "dependencies": { "@popperjs/core": "^2.11.8", "eslint-plugin-better-styled-components": "^1.1.2", "lodash.throttle": "^4.1.1", "react-indiana-drag-scroll": "^2.2.0", "react-popper": "^2.3.0", "styled-components": "^5.3.5" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-zJU/3thdXVm/dshYjYPwqmsB2DjHL7dz9EbFAsjtdMz1icdwVya81DIhrBsAYunxKUz6NflK8p1IFyBTJSaFJg=="],
 

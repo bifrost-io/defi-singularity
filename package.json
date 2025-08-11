@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@kyberswap/liquidity-widgets": "^1.1.27",
+    "@kyberswap/liquidity-widgets": "^1.1.28",
     "@kyberswap/widgets": "^2.1.0",
     "@next/third-parties": "^15.2.4",
     "@radix-ui/react-dialog": "^1.1.14",
