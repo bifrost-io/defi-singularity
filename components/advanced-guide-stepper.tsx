@@ -264,12 +264,12 @@ export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
                   <ExternalLink />
                 </Link>
               </Button>
-              <Button asChild className="w-fit self-end">
+              {/* <Button asChild className="w-fit self-end">
                 <Link href={`/explore/${poolData.id}`}>
                   <Zap />
                   Zap in
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
           <div className="h-[20px]" />
