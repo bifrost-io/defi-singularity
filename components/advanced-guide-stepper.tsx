@@ -255,7 +255,7 @@ export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
                 height={20}
                 className="inline mb-2"
               />{" "}{poolData?.quoteAsset}{" "}
-              0.3% pool by using the Zap in button below or manually via Uniswap interface. You can choose an appropriate liquidity range and token amounts based on your risk tolerance and preferences. Please note that only active liquidity within the current price range is eligible to participate in farming. Unilateral liquidity that is temporarily inactive will likely not receive any incentives during the event period.
+              0.3% pool by using the Zap feature or manually via Uniswap interface. You can choose an appropriate liquidity range and token amounts based on your risk tolerance and preferences. Please note that only active liquidity within the current price range is eligible to participate in farming. Unilateral liquidity that is temporarily inactive will likely not receive any incentives during the event period.
             </p>
             <div className="flex flex-row gap-2 self-end">
               <Button variant="outline" asChild className="w-fit self-end">
