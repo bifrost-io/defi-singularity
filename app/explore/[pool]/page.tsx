@@ -48,9 +48,9 @@ export default function PoolPage() {
   const pool = params.pool as string;
   const {
     data: merklData,
-    isPending,
-    isError,
-    error,
+    // isPending,
+    // isError,
+    // error,
   } = useQuery({
     queryKey: ["merkl-data"],
     queryFn: getMerklData,
@@ -263,10 +263,16 @@ export default function PoolPage() {
                 </TabsList>
               </div>
               <TabsContent value="simple">
-                <SimpleGuideStepper poolData={poolData} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <SimpleGuideStepper poolData={poolData} />
+                  <ZapComponent pageChainId={poolData.chainId} />
+                </div>
               </TabsContent>
               <TabsContent value="advanced">
-                <AdvancedGuideStepper poolData={poolData} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <AdvancedGuideStepper poolData={poolData} />
+                  <ZapComponent pageChainId={poolData.chainId} />
+                </div>
               </TabsContent>
             </Tabs>
           </div>

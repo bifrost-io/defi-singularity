@@ -86,3 +86,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Ensure KyberSwap LiquidityWidget modals appear above our Dialog overlay */
+.kyber-widget [data-radix-popper-content-wrapper],
+.kyber-widget [data-radix-dialog-content],
+.kyber-widget [data-radix-popover-content],
+.kyber-widget [data-radix-tooltip-content] {
+  z-index: 10001 !important;
+}
+
+/* Ensure any confirmation modals from the widget are visible */
+.kyber-widget .modal,
+.kyber-widget .confirmation-modal,
+.kyber-widget .transaction-modal {
+  z-index: 10001 !important;
+}
+
+/* Override any low z-index values that might be set by the widget */
+.kyber-widget *[style*="z-index"] {
+  z-index: 10001 !important;
+}
+
+/* Additional rules for various modal types that might be created by the widget */
+[data-radix-popper-content-wrapper],
+[data-radix-dialog-content],
+[data-radix-popover-content] {
+  z-index: 10001 !important;
+}
+
+/* Ensure modals are properly positioned and visible */
+[data-radix-popper-content-wrapper] > *,
+[data-radix-dialog-content] > *,
+[data-radix-popover-content] > * {
+  position: relative !important;
+  z-index: 10001 !important;
+}
+
+/* Handle any backdrop/overlay elements */
+[data-radix-popper-content-wrapper]::before,
+[data-radix-dialog-content]::before,
+[data-radix-popover-content]::before {
+  z-index: 10000 !important;
+}
