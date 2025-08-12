@@ -23,7 +23,7 @@ import "@kyberswap/liquidity-widgets/dist/style.css";
 export default function ZapComponent({ pageChainId }: { pageChainId: number }) {
   // useMediaQuery hook to check if the screen is desktop
   // const isDesktop = useMediaQuery("(min-width: 768px)");
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const { address } = useAccount();
   const chainId = useChainId();
   const { switchChain } = useSwitchChain();
@@ -56,9 +56,6 @@ export default function ZapComponent({ pageChainId }: { pageChainId: number }) {
       poolType={PoolType.DEX_UNISWAP_V4}
       poolAddress="0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0"
       connectedAccount={{ address: address, chainId: chainId }}
-      onClose={() => {
-        setOpen(false);
-      }}
       onConnectWallet={() => {
         openConnectModal?.();
       }}
