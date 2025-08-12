@@ -2,24 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Zap } from "lucide-react";
 import { Pool } from "@/app/explore/data";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useAccount } from 'wagmi';
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-const ZapComponent = dynamic(() => import("@/components/zap-component"), {
-  ssr: false,
-  loading: () => <Skeleton className="w-full h-[500px]" />,
-});
 
 export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
-  const { address } = useAccount();
   
   return (
-    <div className="flex flex-col w-full md:w-3/4">
+    <div className="flex flex-col w-full">
       <div className="flex flex-row gap-4">
         <div className="flex flex-col">
           <div className="rounded-full p-4 flex items-center justify-center h-10 w-10 border border-muted">
@@ -273,9 +264,12 @@ export default function AdvancedGuideStepper({ poolData }: { poolData: Pool }) {
                   <ExternalLink />
                 </Link>
               </Button>
-              {
-                address ? <ZapComponent pageChainId={poolData?.chainId} /> : <ConnectButton />
-              }
+              <Button asChild className="w-fit self-end">
+                <Link href={`/explore/${poolData.id}`}>
+                  <Zap />
+                  Zap in
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="h-[20px]" />
