@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ExternalLink, Zap } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Pool } from "@/app/explore/data";
 import Image from "next/image";
 
