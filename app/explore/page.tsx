@@ -8,7 +8,7 @@ import { pools } from "@/app/explore/data";
 import PoolCard from "@/components/pool-card";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { MERKL_API_URL } from "@/lib/constants";
+import { MERKL_API_URL, MERKL_API_URL2 } from "@/lib/constants";
 import { Skeleton } from "@/components/ui/skeleton";
 
 
@@ -20,20 +20,26 @@ interface MerklPoolData {
   identifier: string;
   name: string;
   status: string;
+  depositUrl: string;
 }
 
 async function getMerklData(): Promise<MerklPoolData[]> {
-  const response = await fetch(MERKL_API_URL);
-  return response.json();
+  const [response, response2] = await Promise.all([
+    fetch(MERKL_API_URL),
+    fetch(MERKL_API_URL2)
+  ]);
+  const data = await response.json();
+  const data2 = await response2.json();
+  return [...data, ...data2];
 }
 
 // Map chain IDs to ecosystem names
-const chainIdToEcosystem: Record<number, string> = {
-  1: "Ethereum",
-  8453: "Base",
-  42161: "Arbitrum",
-  56: "BNB Chain",
-};
+// const chainIdToEcosystem: Record<number, string> = {
+//   1: "Ethereum",
+//   8453: "Base",
+//   42161: "Arbitrum",
+//   56: "BNB Chain",
+// };
 
 export default function Explore() {
   const {
@@ -55,10 +61,10 @@ export default function Explore() {
     }
 
     return pools.map((pool) => {
-      // Find matching Merkl data by ecosystem
+
+      // Find matching Merkl data by depositUrl
       const merklPool = merklData.find((merklItem: MerklPoolData) => {
-        const ecosystem = chainIdToEcosystem[merklItem.chainId];
-        return ecosystem === pool.ecosystem;
+        return merklItem.depositUrl === pool.poolUrl;
       });
 
       if (merklPool) {
