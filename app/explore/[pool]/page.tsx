@@ -29,6 +29,7 @@ interface MerklPoolData {
   name: string;
   status: string;
   depositUrl: string;
+  dailyRewards: number;
 }
 
 // Map chain IDs to ecosystem names
@@ -76,6 +77,7 @@ export default function PoolPage() {
             ...poolItem,
             apr: Math.round(merklPool.apr).toLocaleString(),
             tvl: merklPool.tvl,
+            dailyRewards: merklPool.dailyRewards,
           };
         }
 
@@ -188,7 +190,7 @@ export default function PoolPage() {
               </h1>
               <div className="flex flex-row gap-2 items-center">
                 <p className="text-2xl">
-                  {formatAccountingNumber(poolData.incentive)}
+                  ${formatAccountingNumber(poolData.dailyRewards)}
                 </p>
                 <Image
                   src={poolData.incentiveTokenLogo}
@@ -270,13 +272,13 @@ export default function PoolPage() {
               <TabsContent value="simple">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <SimpleGuideStepper poolData={poolData} />
-                  <ZapComponent pageChainId={poolData.chainId} />
+                  <ZapComponent pageChainId={poolData.chainId} poolAddress={poolData.address.split("/")[1]} />
                 </div>
               </TabsContent>
               <TabsContent value="advanced">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <AdvancedGuideStepper poolData={poolData} />
-                  <ZapComponent pageChainId={poolData.chainId} />
+                  <ZapComponent pageChainId={poolData.chainId} poolAddress={poolData.address.split("/")[1]} />
                 </div>
               </TabsContent>
             </Tabs>

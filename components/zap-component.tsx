@@ -20,7 +20,7 @@ import { Zap } from "lucide-react";
 // } from "@/components/ui/dialog";
 import "@kyberswap/liquidity-widgets/dist/style.css";
 
-export default function ZapComponent({ pageChainId }: { pageChainId: number }) {
+export default function ZapComponent({ pageChainId, poolAddress }: { pageChainId: number, poolAddress: string }) {
   // useMediaQuery hook to check if the screen is desktop
   // const isDesktop = useMediaQuery("(min-width: 768px)");
   // const [open, setOpen] = useState(false);
@@ -59,7 +59,7 @@ export default function ZapComponent({ pageChainId }: { pageChainId: number }) {
         }}
         chainId={pageChainId}
         poolType={PoolType.DEX_UNISWAP_V4}
-        poolAddress="0xaa73a142ee6a70b2f2e3311c9dee917f1210be2abbc4385467935ceaaadab8a0"
+        poolAddress={poolAddress}
         connectedAccount={{ address: address, chainId: chainId }}
         onConnectWallet={() => {
           openConnectModal?.();
