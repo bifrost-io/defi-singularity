@@ -143,7 +143,7 @@ export default function Explore() {
         )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {isPending ? (
-            Array.from({ length: 4 }).map((_, index) => (
+            Array.from({ length: 8 }).map((_, index) => (
               <Skeleton key={index} className="w-full h-[410px]" />
             ))
           ) : (
