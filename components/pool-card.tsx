@@ -62,7 +62,7 @@ export default function PoolCard({ pool }: { pool: Pool }) {
         <p className="text-sm text-muted-foreground">Total incentive</p>
         <div className="flex flex-row gap-2 items-center">
           <h1 className="text-xl font-bold">
-            {formatAccountingNumber(pool.incentive)}
+            ${formatAccountingNumber(pool.dailyRewards)}
           </h1>
           <Image
             src={pool.incentiveTokenLogo}

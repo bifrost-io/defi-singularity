@@ -21,6 +21,7 @@ interface MerklPoolData {
   name: string;
   status: string;
   depositUrl: string;
+  dailyRewards: number;
 }
 
 async function getMerklData(): Promise<MerklPoolData[]> {
@@ -72,6 +73,7 @@ export default function Explore() {
           ...pool,
           apr: Math.round(merklPool.apr).toLocaleString(),
           tvl: merklPool.tvl,
+          dailyRewards: merklPool.dailyRewards,
         };
       }
 

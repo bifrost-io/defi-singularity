@@ -9,7 +9,7 @@ import { formatAccountingNumber, formatTimeline } from "@/lib/utils";
 import SimpleGuideStepper from "@/components/simple-guide-stepper";
 import AdvancedGuideStepper from "@/components/advanced-guide-stepper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MERKL_API_URL } from "@/lib/constants";
+import { MERKL_API_URL, MERKL_API_URL2 } from "@/lib/constants";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
@@ -28,19 +28,25 @@ interface MerklPoolData {
   identifier: string;
   name: string;
   status: string;
+  depositUrl: string;
 }
 
 // Map chain IDs to ecosystem names
-const chainIdToEcosystem: Record<number, string> = {
-  1: "Ethereum",
-  8453: "Base",
-  42161: "Arbitrum",
-  56: "BNB Chain",
-};
+// const chainIdToEcosystem: Record<number, string> = {
+//   1: "Ethereum",
+//   8453: "Base",
+//   42161: "Arbitrum",
+//   56: "BNB Chain",
+// };
 
 async function getMerklData(): Promise<MerklPoolData[]> {
-  const response = await fetch(MERKL_API_URL);
-  return response.json();
+  const [response, response2] = await Promise.all([
+    fetch(MERKL_API_URL),
+    fetch(MERKL_API_URL2)
+  ]);
+  const data = await response.json();
+  const data2 = await response2.json();
+  return [...data, ...data2];
 }
 
 export default function PoolPage() {
@@ -62,8 +68,7 @@ export default function PoolPage() {
     : pools.map((poolItem) => {
         // Find matching Merkl data by ecosystem
         const merklPool = merklData.find((merklItem: MerklPoolData) => {
-          const ecosystem = chainIdToEcosystem[merklItem.chainId];
-          return ecosystem === poolItem.ecosystem;
+          return merklItem.depositUrl === poolItem.poolUrl;
         });
 
         if (merklPool) {

@@ -26,6 +26,7 @@ export interface Pool {
   tvl: number;
   startTimestamp: number;
   endTimestamp: number;
+  dailyRewards: number;
 }
 
 export const pools = [
@@ -57,6 +58,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 11,
@@ -86,6 +88,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 2,
@@ -115,6 +118,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 22,
@@ -144,6 +148,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 3,
@@ -173,6 +178,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 33,
@@ -202,6 +208,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 4,
@@ -231,6 +238,7 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   },
   {
     id: 44,
@@ -260,5 +268,6 @@ export const pools = [
     tvl: 0,
     startTimestamp: 1753437600,
     endTimestamp: 1761040800,
+    dailyRewards: 0,
   }
 ]
