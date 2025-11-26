@@ -71,7 +71,7 @@ export default function Explore() {
       if (merklPool) {
         return {
           ...pool,
-          apr: Math.round(merklPool.apr).toLocaleString(),
+          apr: Number(merklPool.apr.toFixed(1)).toLocaleString(),
           tvl: merklPool.tvl,
           dailyRewards: merklPool.dailyRewards,
         };
