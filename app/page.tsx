@@ -3,13 +3,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import ByPolkadot from "@/components/by-polkadot";
-
+import Banner from "@/components/banner";
 
 export default function Home() {
   return (
     <main className="flex flex-col gap-24 min-h-screen bg-background pb-16">
       {/* Hero Section with just the image and text */}
       <div className="h-screen relative flex flex-col items-center justify-center overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 z-10">
+          <Banner />
+        </div>
         <div className="absolute inset-0 z-0 flex items-center justify-center">
           <div className="relative w-full h-full">
             <Image
