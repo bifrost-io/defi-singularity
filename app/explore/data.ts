@@ -56,8 +56,8 @@ export const pools = [
     apr: "0",
     fee: "0.3%",
     tvl: 0,
-    startTimestamp: 1761040800,
-    endTimestamp: 1768816800,
+    startTimestamp: 1768816800,
+    endTimestamp: 1776592800,
     dailyRewards: 0,
   },
   {
@@ -116,8 +116,8 @@ export const pools = [
     apr: "0",
     fee: "0.3%",
     tvl: 0,
-    startTimestamp: 1761040800,
-    endTimestamp: 1768816800,
+    startTimestamp: 1768816800,
+    endTimestamp: 1776592800,
     dailyRewards: 0,
   },
   {
@@ -176,8 +176,8 @@ export const pools = [
     apr: "0",
     fee: "0.3%", 
     tvl: 0,
-    startTimestamp: 1761040800,
-    endTimestamp: 1768816800,
+    startTimestamp: 1768816800,
+    endTimestamp: 1776592800,
     dailyRewards: 0,
   },
   {
@@ -236,8 +236,8 @@ export const pools = [
     apr: "0",
     fee: "0.3%",
     tvl: 0,
-    startTimestamp: 1761040800,
-    endTimestamp: 1768816800,
+    startTimestamp: 1768816800,
+    endTimestamp: 1776592800,
     dailyRewards: 0,
   },
   {
